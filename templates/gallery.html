@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Галерея{% endblock %}
+
+{% block content %}
+<section id="page-gallery" class="page" aria-labelledby="gallery-title">
+  <div class="card stack-lg">
+    <h2 id="gallery-title">Приятные моменты</h2>
+
+    <div class="gallery" id="gallery">
+      {% for photo in page_obj.object_list %}
+      <div class="photo">
+        <img src="{{ photo.image.url }}" alt="{{ photo.title|default:'Фото' }}" loading="lazy" data-full="{{ photo.image.url }}" data-title="{{ photo.title|default:'' }}" data-desc="{{ photo.description|default:'' }}">
+        {% if photo.description %}
+        <a class="photo-desc" href="{% url 'photo_detail' photo.pk %}">{{ photo.description }}</a>
+        {% endif %}
+      </div>
+      {% empty %}
+      <p>Пока нет загруженных фотографий. Добавьте их через админку.</p>
+      {% endfor %}
+    </div>
+
+    <nav class="pagination">
+      {% if page_obj.has_previous %}
+        <a class="btn" href="?page={{ page_obj.previous_page_number }}">Назад</a>
+      {% endif %}
+      <span class="page-info">Страница {{ page_obj.number }} из {{ page_obj.paginator.num_pages }}</span>
+      {% if page_obj.has_next %}
+        <a class="btn" href="?page={{ page_obj.next_page_number }}">Далее</a>
+      {% endif %}
+    </nav>
+
+    <div class="btn-row">
+      <a id="to-code" class="btn secondary" href="{% url 'conclusion' %}">Заключение</a>
+      <a id="back-to-greeting" class="btn" href="/">На главную</a>
+    </div>
+  </div>
+</section>
+
+<div id="lightbox" class="lightbox" aria-modal="true" role="dialog" aria-label="Просмотр изображения">
+  <img id="lightbox-img" alt="Увеличенное фото">
+</div>
+{% endblock %}

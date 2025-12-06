@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Заключение{% endblock %}
+
+{% block content %}
+<section class="page">
+  <div class="card stack-lg">
+    <h2>Заключение</h2>
+    <p class="lead">Список всех загруженных фотографий. Нажмите на описание, чтобы перейти к фото.</p>
+
+    <ul class="conclusion-list">
+      {% for photo in photos %}
+      <li>
+        <a href="{% url 'photo_detail' photo.pk %}">
+          {{ photo.title|default:"Фото без названия" }} — {{ photo.description|default:"Без описания" }}
+        </a>
+      </li>
+      {% empty %}
+      <li>Пока ничего нет.</li>
+      {% endfor %}
+    </ul>
+
+    <div class="btn-row">
+      <a class="btn" href="{% url 'gallery' %}">Назад к галерее</a>
+      <a class="btn secondary" href="/">На главную</a>
+    </div>
+  </div>
+</section>
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Поздравление с Днём Рождения{% endblock %}
+
+{% block content %}
+<section id="page-greeting" class="page active" aria-labelledby="title">
+  <canvas id="confetti"></canvas>
+  <div class="card stack-lg">
+    <h1 id="title">С Днём Рождения!</h1>
+    <p class="lead">05 декабря 2025 года - это случилось!</p>
+
+    <div class="type" id="typed" aria-live="polite"></div>
+    <div class="muted">Это маленькое поздравление написал твой друг Евгений на языке программирования Python, использовал стили css и анимация javascript</div>
+
+    <div class="btn-row">
+      <a class="btn" href="{% url 'gallery' %}" aria-label="Перейти к приятным моментам">Приятные моменты</a>
+    </div>
+  </div>
+</section>
+{% endblock %}
