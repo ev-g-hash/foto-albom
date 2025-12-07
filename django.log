@@ -1,0 +1,546 @@
+Watching for file changes with StatReloader
+"GET / HTTP/1.1" 200 1144
+"GET /static/fotos/css/style.css HTTP/1.1" 304 0
+"GET /static/fotos/js/main.js HTTP/1.1" 304 0
+"GET /fotos/ HTTP/1.1" 200 2203
+"GET /media/photos/1.jpg HTTP/1.1" 304 0
+"GET /media/photos/3.jpg HTTP/1.1" 304 0
+"GET /media/photos/2.jpg HTTP/1.1" 304 0
+"GET /fotos/?page=2 HTTP/1.1" 200 2215
+"GET /media/photos/4.jpg HTTP/1.1" 304 0
+"GET /media/photos/5.jpg HTTP/1.1" 304 0
+"GET /media/photos/6.jpg HTTP/1.1" 304 0
+Watching for file changes with StatReloader
+"GET / HTTP/1.1" 200 1144
+"GET /static/fotos/css/style.css HTTP/1.1" 304 0
+"GET /static/fotos/js/main.js HTTP/1.1" 304 0
+"GET /fotos/ HTTP/1.1" 200 2203
+"GET /media/photos/1.jpg HTTP/1.1" 304 0
+"GET /media/photos/2.jpg HTTP/1.1" 304 0
+"GET /media/photos/3.jpg HTTP/1.1" 304 0
+"GET /fotos/1/ HTTP/1.1" 200 872
+"GET /fotos/ HTTP/1.1" 200 2203
+"GET /fotos/2/ HTTP/1.1" 200 861
+"GET /fotos/ HTTP/1.1" 200 2203
+"GET /fotos/?page=2 HTTP/1.1" 200 2215
+"GET /media/photos/4.jpg HTTP/1.1" 304 0
+"GET /media/photos/5.jpg HTTP/1.1" 304 0
+"GET /media/photos/6.jpg HTTP/1.1" 304 0
+"GET /fotos/conclusion/ HTTP/1.1" 200 1703
+"GET /fotos/2/ HTTP/1.1" 200 861
+"GET /fotos/ HTTP/1.1" 200 2203
+Watching for file changes with StatReloader
+"GET / HTTP/1.1" 200 1144
+"GET /static/fotos/css/style.css HTTP/1.1" 304 0
+"GET /static/fotos/js/main.js HTTP/1.1" 304 0
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 179
+"GET /fotos/ HTTP/1.1" 200 2203
+Not Found: /media/photos/2.jpg
+"GET /media/photos/2.jpg HTTP/1.1" 404 179
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 179
+Not Found: /media/photos/1.jpg
+Not Found: /media/photos/3.jpg
+"GET /media/photos/1.jpg HTTP/1.1" 404 179
+"GET /media/photos/3.jpg HTTP/1.1" 404 179
+"GET / HTTP/1.1" 200 1144
+"GET /fotos/ HTTP/1.1" 200 2203
+Not Found: /media/photos/1.jpg
+Not Found: /media/photos/2.jpg
+"GET /media/photos/1.jpg HTTP/1.1" 404 179
+"GET /media/photos/2.jpg HTTP/1.1" 404 179
+Not Found: /media/photos/3.jpg
+"GET /media/photos/3.jpg HTTP/1.1" 404 179
+Not Found: /media/photos/2.jpg
+"GET /media/photos/2.jpg HTTP/1.1" 404 179
+"GET /fotos/?page=2 HTTP/1.1" 200 2215
+Not Found: /media/photos/5.jpg
+Not Found: /media/photos/6.jpg
+"GET /media/photos/5.jpg HTTP/1.1" 404 179
+"GET /media/photos/6.jpg HTTP/1.1" 404 179
+Not Found: /media/photos/4.jpg
+"GET /media/photos/4.jpg HTTP/1.1" 404 179
+"GET /fotos/?page=1 HTTP/1.1" 200 2203
+Not Found: /media/photos/1.jpg
+Not Found: /media/photos/2.jpg
+Not Found: /media/photos/3.jpg
+"GET /media/photos/1.jpg HTTP/1.1" 404 179
+"GET /media/photos/2.jpg HTTP/1.1" 404 179
+"GET /media/photos/3.jpg HTTP/1.1" 404 179
+C:\Users\прога\Desktop\PRODAKHN\foto-albom\main\settings.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\прога\Desktop\PRODAKHN\foto-albom\main\settings.py changed, reloading.
+Watching for file changes with StatReloader
+"GET / HTTP/1.1" 200 1144
+"GET /static/fotos/css/style.css HTTP/1.1" 304 0
+"GET /static/fotos/js/main.js HTTP/1.1" 304 0
+"GET /fotos/ HTTP/1.1" 200 2203
+Not Found: /media/photos/1.jpg
+"GET /media/photos/1.jpg HTTP/1.1" 404 179
+Not Found: /media/photos/2.jpg
+"GET /media/photos/2.jpg HTTP/1.1" 404 179
+Not Found: /media/photos/3.jpg
+"GET /media/photos/3.jpg HTTP/1.1" 404 179
+"GET /admin/ HTTP/1.1" 200 9893
+Not Found: /static/admin/css/base.css
+"GET /static/admin/css/base.css HTTP/1.1" 404 179
+Not Found: /static/admin/css/dark_mode.css
+"GET /static/admin/css/dark_mode.css HTTP/1.1" 404 179
+Not Found: /static/admin/css/dashboard.css
+Not Found: /static/admin/css/nav_sidebar.css
+"GET /static/admin/css/dashboard.css HTTP/1.1" 404 179
+"GET /static/admin/css/nav_sidebar.css HTTP/1.1" 404 179
+Not Found: /static/admin/css/responsive.css
+"GET /static/admin/css/responsive.css HTTP/1.1" 404 179
+Not Found: /static/admin/js/nav_sidebar.js
+"GET /static/admin/js/nav_sidebar.js HTTP/1.1" 404 179
+Not Found: /static/admin/js/theme.js
+"GET /static/admin/js/theme.js HTTP/1.1" 404 179
+Not Found: /static/admin/css/nav_sidebar.css
+Not Found: /static/admin/css/responsive.css
+Not Found: /static/admin/css/dashboard.css
+"GET /static/admin/css/nav_sidebar.css HTTP/1.1" 404 179
+"GET /static/admin/css/responsive.css HTTP/1.1" 404 179
+"GET /static/admin/css/dashboard.css HTTP/1.1" 404 179
+Watching for file changes with StatReloader
+"GET / HTTP/1.1" 200 1144
+"GET /static/fotos/js/main.js HTTP/1.1" 304 0
+"GET /static/fotos/css/style.css HTTP/1.1" 304 0
+"GET /admin/ HTTP/1.1" 200 9893
+"GET /static/admin/css/dark_mode.css HTTP/1.1" 200 3538
+"GET /static/admin/css/base.css HTTP/1.1" 200 23100
+"GET /static/admin/js/theme.js HTTP/1.1" 200 1653
+"GET /static/admin/js/nav_sidebar.js HTTP/1.1" 200 3063
+"GET /static/admin/css/nav_sidebar.css HTTP/1.1" 200 2810
+"GET /static/admin/css/dashboard.css HTTP/1.1" 200 441
+"GET /static/admin/css/responsive.css HTTP/1.1" 200 16194
+"GET /static/admin/img/icon-changelink.svg HTTP/1.1" 200 978
+"GET /static/admin/img/icon-addlink.svg HTTP/1.1" 200 593
+"GET /admin/fotos/photo/ HTTP/1.1" 200 15015
+"GET /static/admin/css/changelists.css HTTP/1.1" 200 7501
+"GET /static/admin/js/core.js HTTP/1.1" 200 6208
+"GET /static/admin/js/jquery.init.js HTTP/1.1" 200 347
+"GET /admin/jsi18n/ HTTP/1.1" 200 16820
+"GET /static/admin/js/vendor/jquery/jquery.min.js HTTP/1.1" 200 87533
+"GET /static/admin/js/prepopulate.js HTTP/1.1" 200 1531
+"GET /static/admin/js/actions.js HTTP/1.1" 200 8076
+"GET /static/admin/js/urlify.js HTTP/1.1" 200 7887
+"GET /static/admin/js/vendor/xregexp/xregexp.min.js HTTP/1.1" 200 163184
+"GET /static/admin/img/search.svg HTTP/1.1" 200 607
+"GET /static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 200 9777
+"GET /static/admin/js/filters.js HTTP/1.1" 200 978
+"GET /static/admin/img/tooltag-add.svg HTTP/1.1" 200 593
+"GET /static/admin/img/icon-viewlink.svg HTTP/1.1" 200 928
+"GET /fotos/ HTTP/1.1" 200 2203
+Not Found: /media/photos/1.jpg
+"GET /media/photos/1.jpg HTTP/1.1" 404 179
+Not Found: /media/photos/2.jpg
+Not Found: /media/photos/3.jpg
+"GET /media/photos/2.jpg HTTP/1.1" 404 179
+"GET /media/photos/3.jpg HTTP/1.1" 404 179
+Not Found: /media/photos/2.jpg
+"GET /media/photos/2.jpg HTTP/1.1" 404 179
+Watching for file changes with StatReloader
+"GET / HTTP/1.1" 200 1144
+"GET /static/fotos/css/style.css HTTP/1.1" 304 0
+"GET /static/fotos/js/main.js HTTP/1.1" 304 0
+"GET /admin/ HTTP/1.1" 200 9893
+"GET /static/admin/css/base.css HTTP/1.1" 304 0
+"GET /static/admin/css/dark_mode.css HTTP/1.1" 304 0
+"GET /static/admin/js/theme.js HTTP/1.1" 304 0
+"GET /static/admin/css/nav_sidebar.css HTTP/1.1" 304 0
+"GET /static/admin/css/responsive.css HTTP/1.1" 304 0
+"GET /static/admin/css/dashboard.css HTTP/1.1" 304 0
+"GET /static/admin/js/nav_sidebar.js HTTP/1.1" 304 0
+"GET /static/admin/img/icon-addlink.svg HTTP/1.1" 304 0
+"GET /static/admin/img/icon-changelink.svg HTTP/1.1" 304 0
+"GET /admin/fotos/photo/ HTTP/1.1" 200 15015
+"GET /static/admin/css/changelists.css HTTP/1.1" 304 0
+"GET /static/admin/js/vendor/jquery/jquery.min.js HTTP/1.1" 304 0
+"GET /static/admin/js/actions.js HTTP/1.1" 304 0
+"GET /static/admin/js/urlify.js HTTP/1.1" 304 0
+"GET /static/admin/js/vendor/xregexp/xregexp.min.js HTTP/1.1" 304 0
+"GET /static/admin/js/prepopulate.js HTTP/1.1" 304 0
+"GET /admin/jsi18n/ HTTP/1.1" 200 16820
+"GET /static/admin/img/search.svg HTTP/1.1" 304 0
+"GET /static/admin/js/jquery.init.js HTTP/1.1" 304 0
+"GET /static/admin/js/core.js HTTP/1.1" 304 0
+"GET /static/admin/js/filters.js HTTP/1.1" 304 0
+"GET /static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 304 0
+"GET /static/admin/img/icon-viewlink.svg HTTP/1.1" 304 0
+"GET /static/admin/img/tooltag-add.svg HTTP/1.1" 304 0
+"GET / HTTP/1.1" 200 1144
+"GET /fotos/ HTTP/1.1" 200 2203
+Not Found: /media/photos/1.jpg
+"GET /media/photos/1.jpg HTTP/1.1" 404 179
+Not Found: /media/photos/2.jpg
+"GET /media/photos/2.jpg HTTP/1.1" 404 179
+Not Found: /media/photos/3.jpg
+"GET /media/photos/3.jpg HTTP/1.1" 404 179
+"GET / HTTP/1.1" 200 1144
+"GET /admin/ HTTP/1.1" 200 9893
+"GET /admin/fotos/photo/ HTTP/1.1" 200 15015
+"GET /admin/jsi18n/ HTTP/1.1" 200 16820
+"POST /admin/fotos/photo/ HTTP/1.1" 200 9906
+"GET /static/admin/css/base.css HTTP/1.1" 304 0
+"GET /static/admin/css/nav_sidebar.css HTTP/1.1" 304 0
+"GET /static/admin/css/responsive.css HTTP/1.1" 304 0
+"GET /static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 304 0
+"GET /static/admin/js/actions.js HTTP/1.1" 304 0
+"GET /static/admin/css/dark_mode.css HTTP/1.1" 304 0
+"GET /static/admin/js/urlify.js HTTP/1.1" 304 0
+"GET /static/admin/js/prepopulate.js HTTP/1.1" 304 0
+"GET /static/admin/js/vendor/xregexp/xregexp.min.js HTTP/1.1" 304 0
+"GET /static/admin/js/theme.js HTTP/1.1" 304 0
+"GET /static/admin/js/vendor/jquery/jquery.min.js HTTP/1.1" 304 0
+"GET /static/admin/js/jquery.init.js HTTP/1.1" 304 0
+"GET /static/admin/js/core.js HTTP/1.1" 304 0
+"GET /static/admin/js/nav_sidebar.js HTTP/1.1" 304 0
+"GET /static/admin/js/cancel.js HTTP/1.1" 200 884
+"POST /admin/fotos/photo/ HTTP/1.1" 302 0
+"GET /admin/fotos/photo/ HTTP/1.1" 200 11041
+"GET /static/admin/css/changelists.css HTTP/1.1" 304 0
+"GET /static/admin/img/search.svg HTTP/1.1" 304 0
+"GET /admin/jsi18n/ HTTP/1.1" 200 16820
+"GET /static/admin/js/filters.js HTTP/1.1" 304 0
+"GET /static/admin/img/icon-yes.svg HTTP/1.1" 200 558
+"GET / HTTP/1.1" 200 1144
+"GET /static/fotos/css/style.css HTTP/1.1" 304 0
+"GET /static/fotos/js/main.js HTTP/1.1" 304 0
+"GET /fotos/ HTTP/1.1" 200 1216
+"GET / HTTP/1.1" 200 1144
+"GET /fotos/ HTTP/1.1" 200 1216
+"GET / HTTP/1.1" 200 1144
+"GET /admin/ HTTP/1.1" 200 11148
+"GET /static/admin/css/dashboard.css HTTP/1.1" 304 0
+"GET /static/admin/img/icon-deletelink.svg HTTP/1.1" 200 689
+"GET /static/admin/img/icon-addlink.svg HTTP/1.1" 304 0
+"GET /static/admin/img/icon-changelink.svg HTTP/1.1" 304 0
+"GET /admin/fotos/photo/ HTTP/1.1" 200 10882
+"GET /admin/jsi18n/ HTTP/1.1" 200 16820
+"GET /static/admin/img/tooltag-add.svg HTTP/1.1" 304 0
+"GET /static/admin/img/icon-viewlink.svg HTTP/1.1" 304 0
+"GET /admin/fotos/photo/add/ HTTP/1.1" 200 11094
+"GET /admin/jsi18n/ HTTP/1.1" 200 16820
+"GET /static/admin/js/prepopulate_init.js HTTP/1.1" 200 586
+"GET /static/admin/css/forms.css HTTP/1.1" 200 8844
+"GET /static/admin/js/change_form.js HTTP/1.1" 200 606
+"GET /static/admin/css/widgets.css HTTP/1.1" 200 11811
+"POST /admin/fotos/photo/add/ HTTP/1.1" 302 0
+"GET /admin/fotos/photo/ HTTP/1.1" 200 12969
+"GET /admin/jsi18n/ HTTP/1.1" 200 16820
+"GET / HTTP/1.1" 200 1144
+"GET /fotos/ HTTP/1.1" 200 1363
+Not Found: /media/photos/1_Obyk1zv.jpg
+"GET /media/photos/1_Obyk1zv.jpg HTTP/1.1" 404 179
+Watching for file changes with StatReloader
+"GET / HTTP/1.1" 200 1144
+"GET /static/fotos/css/style.css HTTP/1.1" 304 0
+"GET /static/fotos/js/main.js HTTP/1.1" 304 0
+"GET /fotos/ HTTP/1.1" 200 2266
+Not Found: /media/photos/1.jpg
+Not Found: /media/photos/2.jpg
+"GET /media/photos/2.jpg HTTP/1.1" 404 179
+"GET /media/photos/1.jpg HTTP/1.1" 404 179
+Not Found: /media/photos/3.jpg
+"GET /media/photos/3.jpg HTTP/1.1" 404 179
+"GET /fotos/?page=2 HTTP/1.1" 200 2268
+Not Found: /media/photos/5.jpg
+Not Found: /media/photos/6.jpg
+"GET /media/photos/6.jpg HTTP/1.1" 404 179
+"GET /media/photos/5.jpg HTTP/1.1" 404 179
+Not Found: /media/photos/4.jpg
+"GET /media/photos/4.jpg HTTP/1.1" 404 179
+Not Found: /media/photos/4.jpg
+"GET /media/photos/4.jpg HTTP/1.1" 404 179
+"GET / HTTP/1.1" 200 1144
+Watching for file changes with StatReloader
+"GET / HTTP/1.1" 200 1144
+"GET /static/fotos/css/style.css HTTP/1.1" 304 0
+"GET /static/fotos/js/main.js HTTP/1.1" 304 0
+"GET / HTTP/1.1" 200 1144
+"GET /fotos/ HTTP/1.1" 200 2266
+Not Found: /media/photos/2.jpg
+"GET /media/photos/2.jpg HTTP/1.1" 404 179
+Not Found: /media/photos/1.jpg
+Not Found: /media/photos/3.jpg
+"GET /media/photos/1.jpg HTTP/1.1" 404 179
+"GET /media/photos/3.jpg HTTP/1.1" 404 179
+"GET /fotos/?page=2 HTTP/1.1" 200 2268
+Not Found: /media/photos/4.jpg
+Not Found: /media/photos/5.jpg
+"GET /media/photos/5.jpg HTTP/1.1" 404 179
+"GET /media/photos/4.jpg HTTP/1.1" 404 179
+Not Found: /media/photos/6.jpg
+"GET /media/photos/6.jpg HTTP/1.1" 404 179
+"GET /fotos/?page=1 HTTP/1.1" 200 2266
+Not Found: /media/photos/1.jpg
+"GET /media/photos/1.jpg HTTP/1.1" 404 179
+Not Found: /media/photos/2.jpg
+"GET /media/photos/2.jpg HTTP/1.1" 404 179
+Not Found: /media/photos/3.jpg
+"GET /media/photos/3.jpg HTTP/1.1" 404 179
+Not Found: /media/photos/1.jpg
+"GET /media/photos/1.jpg HTTP/1.1" 404 179
+Watching for file changes with StatReloader
+"GET / HTTP/1.1" 200 1144
+"GET /static/fotos/css/style.css HTTP/1.1" 304 0
+"GET /static/fotos/js/main.js HTTP/1.1" 304 0
+"GET /fotos/ HTTP/1.1" 200 2266
+Not Found: /media/photos/1.jpg
+Not Found: /media/photos/2.jpg
+"GET /media/photos/1.jpg HTTP/1.1" 404 179
+"GET /media/photos/2.jpg HTTP/1.1" 404 179
+Not Found: /media/photos/3.jpg
+"GET /media/photos/3.jpg HTTP/1.1" 404 179
+C:\Users\прога\Desktop\PRODAKHN\foto-albom\main\settings.py changed, reloading.
+Watching for file changes with StatReloader
+"GET / HTTP/1.1" 200 1144
+"GET /static/fotos/js/main.js HTTP/1.1" 304 0
+"GET /static/fotos/css/style.css HTTP/1.1" 304 0
+"GET /fotos/ HTTP/1.1" 200 2266
+Not Found: /media/photos/1.jpg
+"GET /media/photos/1.jpg HTTP/1.1" 404 179
+Not Found: /media/photos/2.jpg
+"GET /media/photos/2.jpg HTTP/1.1" 404 179
+Not Found: /media/photos/3.jpg
+"GET /media/photos/3.jpg HTTP/1.1" 404 179
+"GET /fotos/?page=2 HTTP/1.1" 200 2268
+Not Found: /media/photos/4.jpg
+Not Found: /media/photos/6.jpg
+Not Found: /media/photos/5.jpg
+"GET /media/photos/6.jpg HTTP/1.1" 404 179
+"GET /media/photos/4.jpg HTTP/1.1" 404 179
+"GET /media/photos/5.jpg HTTP/1.1" 404 179
+"GET /fotos/?page=1 HTTP/1.1" 200 2266
+Not Found: /media/photos/1.jpg
+"GET /media/photos/1.jpg HTTP/1.1" 404 179
+Not Found: /media/photos/2.jpg
+"GET /media/photos/2.jpg HTTP/1.1" 404 179
+Not Found: /media/photos/3.jpg
+"GET /media/photos/3.jpg HTTP/1.1" 404 179
+"GET /fotos/?page=2 HTTP/1.1" 200 2268
+Not Found: /media/photos/4.jpg
+"GET /media/photos/4.jpg HTTP/1.1" 404 179
+Not Found: /media/photos/5.jpg
+Not Found: /media/photos/6.jpg
+"GET /media/photos/5.jpg HTTP/1.1" 404 179
+"GET /media/photos/6.jpg HTTP/1.1" 404 179
+"GET /admin/ HTTP/1.1" 200 11130
+"GET /static/admin/css/nav_sidebar.css HTTP/1.1" 304 0
+"GET /static/admin/css/responsive.css HTTP/1.1" 304 0
+"GET /static/admin/js/theme.js HTTP/1.1" 304 0
+"GET /static/admin/css/dashboard.css HTTP/1.1" 304 0
+"GET /static/admin/css/dark_mode.css HTTP/1.1" 304 0
+"GET /static/admin/js/nav_sidebar.js HTTP/1.1" 304 0
+"GET /static/admin/css/base.css HTTP/1.1" 304 0
+"GET /static/admin/img/icon-changelink.svg HTTP/1.1" 304 0
+"GET /static/admin/img/icon-addlink.svg HTTP/1.1" 304 0
+"GET /static/admin/img/icon-deletelink.svg HTTP/1.1" 304 0
+"GET /admin/fotos/photo/ HTTP/1.1" 200 14940
+"GET /static/admin/js/core.js HTTP/1.1" 304 0
+"GET /static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 304 0
+"GET /static/admin/js/jquery.init.js HTTP/1.1" 304 0
+"GET /static/admin/js/vendor/jquery/jquery.min.js HTTP/1.1" 304 0
+"GET /static/admin/css/changelists.css HTTP/1.1" 304 0
+"GET /static/admin/js/actions.js HTTP/1.1" 304 0
+"GET /static/admin/js/urlify.js HTTP/1.1" 304 0
+"GET /admin/jsi18n/ HTTP/1.1" 200 16820
+"GET /static/admin/js/vendor/xregexp/xregexp.min.js HTTP/1.1" 304 0
+"GET /static/admin/js/prepopulate.js HTTP/1.1" 304 0
+"GET /static/admin/img/search.svg HTTP/1.1" 304 0
+"GET /static/admin/js/filters.js HTTP/1.1" 304 0
+"GET /static/admin/img/tooltag-add.svg HTTP/1.1" 304 0
+"GET /static/admin/img/icon-viewlink.svg HTTP/1.1" 304 0
+"POST /admin/fotos/photo/ HTTP/1.1" 200 9871
+"GET /static/admin/js/cancel.js HTTP/1.1" 304 0
+"POST /admin/fotos/photo/ HTTP/1.1" 302 0
+"GET /admin/fotos/photo/ HTTP/1.1" 200 11041
+"GET /admin/jsi18n/ HTTP/1.1" 200 16820
+"GET /static/admin/img/icon-yes.svg HTTP/1.1" 304 0
+"GET /admin/fotos/photo/add/ HTTP/1.1" 200 11094
+"GET /static/admin/css/forms.css HTTP/1.1" 304 0
+"GET /admin/jsi18n/ HTTP/1.1" 200 16820
+"GET /static/admin/js/prepopulate_init.js HTTP/1.1" 304 0
+"GET /static/admin/css/widgets.css HTTP/1.1" 304 0
+"GET /static/admin/js/change_form.js HTTP/1.1" 304 0
+"POST /admin/fotos/photo/add/ HTTP/1.1" 302 0
+"GET /admin/fotos/photo/ HTTP/1.1" 200 12966
+"GET /admin/jsi18n/ HTTP/1.1" 200 16820
+"GET / HTTP/1.1" 200 1144
+"GET /static/fotos/css/style.css HTTP/1.1" 304 0
+"GET /static/fotos/js/main.js HTTP/1.1" 304 0
+"GET /fotos/ HTTP/1.1" 200 1360
+Not Found: /media/photos/1_8beWpT2.jpg
+"GET /media/photos/1_8beWpT2.jpg HTTP/1.1" 404 179
+Watching for file changes with StatReloader
+"GET / HTTP/1.1" 200 1144
+"GET /static/fotos/css/style.css HTTP/1.1" 304 0
+"GET /static/fotos/js/main.js HTTP/1.1" 304 0
+"GET /fotos/ HTTP/1.1" 200 1360
+Not Found: /media/photos/1_8beWpT2.jpg
+"GET /media/photos/1_8beWpT2.jpg HTTP/1.1" 404 179
+C:\Users\прога\Desktop\PRODAKHN\foto-albom\main\settings.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\прога\Desktop\PRODAKHN\foto-albom\main\settings.py changed, reloading.
+Watching for file changes with StatReloader
+"GET /fotos/ HTTP/1.1" 200 1360
+Not Found: /media/photos/1_8beWpT2.jpg
+"GET /media/photos/1_8beWpT2.jpg HTTP/1.1" 404 179
+C:\Users\прога\Desktop\PRODAKHN\foto-albom\main\settings.py changed, reloading.
+Watching for file changes with StatReloader
+"GET /fotos/ HTTP/1.1" 200 1360
+"GET /static/fotos/css/style.css HTTP/1.1" 304 0
+"GET /static/fotos/js/main.js HTTP/1.1" 304 0
+Not Found: /media/photos/1_8beWpT2.jpg
+"GET /media/photos/1_8beWpT2.jpg HTTP/1.1" 404 179
+C:\Users\прога\Desktop\PRODAKHN\foto-albom\main\settings.py changed, reloading.
+Watching for file changes with StatReloader
+"GET / HTTP/1.1" 200 1144
+"GET / HTTP/1.1" 200 1144
+"GET /fotos/ HTTP/1.1" 200 1360
+Not Found: /media/photos/1_8beWpT2.jpg
+"GET /media/photos/1_8beWpT2.jpg HTTP/1.1" 404 179
+C:\Users\прога\Desktop\PRODAKHN\foto-albom\main\settings.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+"GET / HTTP/1.1" 200 1144
+"GET /static/fotos/css/style.css HTTP/1.1" 304 0
+"GET /static/fotos/js/main.js HTTP/1.1" 304 0
+"GET /fotos/ HTTP/1.1" 200 1360
+Not Found: /media/photos/1_8beWpT2.jpg
+"GET /media/photos/1_8beWpT2.jpg HTTP/1.1" 404 179
+"GET / HTTP/1.1" 200 1144
+"GET /admin/ HTTP/1.1" 200 10970
+"GET /static/admin/css/base.css HTTP/1.1" 304 0
+"GET /static/admin/js/theme.js HTTP/1.1" 304 0
+"GET /static/admin/css/dark_mode.css HTTP/1.1" 304 0
+"GET /static/admin/css/nav_sidebar.css HTTP/1.1" 304 0
+"GET /static/admin/css/dashboard.css HTTP/1.1" 304 0
+"GET /static/admin/css/responsive.css HTTP/1.1" 304 0
+"GET /static/admin/img/icon-deletelink.svg HTTP/1.1" 304 0
+"GET /static/admin/img/icon-changelink.svg HTTP/1.1" 304 0
+"GET /static/admin/img/icon-addlink.svg HTTP/1.1" 304 0
+"GET /static/admin/js/nav_sidebar.js HTTP/1.1" 304 0
+"GET /admin/fotos/photo/ HTTP/1.1" 200 12761
+"GET /static/admin/css/changelists.css HTTP/1.1" 304 0
+"GET /static/admin/js/vendor/jquery/jquery.min.js HTTP/1.1" 304 0
+"GET /static/admin/js/jquery.init.js HTTP/1.1" 304 0
+"GET /static/admin/js/actions.js HTTP/1.1" 304 0
+"GET /static/admin/js/prepopulate.js HTTP/1.1" 304 0
+"GET /static/admin/js/urlify.js HTTP/1.1" 304 0
+"GET /admin/jsi18n/ HTTP/1.1" 200 16820
+"GET /static/admin/js/vendor/xregexp/xregexp.min.js HTTP/1.1" 304 0
+"GET /static/admin/img/search.svg HTTP/1.1" 304 0
+"GET /static/admin/js/core.js HTTP/1.1" 304 0
+"GET /static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 304 0
+"GET /static/admin/js/filters.js HTTP/1.1" 304 0
+"GET /static/admin/img/tooltag-add.svg HTTP/1.1" 304 0
+"GET /static/admin/img/icon-viewlink.svg HTTP/1.1" 304 0
+"POST /admin/fotos/photo/ HTTP/1.1" 200 9080
+"GET /static/admin/js/cancel.js HTTP/1.1" 304 0
+"POST /admin/fotos/photo/ HTTP/1.1" 302 0
+"GET /admin/fotos/photo/ HTTP/1.1" 200 11029
+"GET /admin/jsi18n/ HTTP/1.1" 200 16820
+"GET /static/admin/img/icon-yes.svg HTTP/1.1" 304 0
+"GET /admin/fotos/photo/add/ HTTP/1.1" 200 11094
+"GET /static/admin/css/forms.css HTTP/1.1" 304 0
+"GET /admin/jsi18n/ HTTP/1.1" 200 16820
+"GET /static/admin/js/prepopulate_init.js HTTP/1.1" 304 0
+"GET /static/admin/css/widgets.css HTTP/1.1" 304 0
+"GET /static/admin/js/change_form.js HTTP/1.1" 304 0
+"POST /admin/fotos/photo/add/ HTTP/1.1" 302 0
+"GET /admin/fotos/photo/ HTTP/1.1" 200 12969
+"GET /admin/jsi18n/ HTTP/1.1" 200 16820
+"GET / HTTP/1.1" 200 1144
+"GET /fotos/ HTTP/1.1" 200 1364
+Not Found: /media/photos/1_MYDTYmn.jpg
+"GET /media/photos/1_MYDTYmn.jpg HTTP/1.1" 404 179
+Watching for file changes with StatReloader
+"GET / HTTP/1.1" 200 1144
+"GET /static/fotos/css/style.css HTTP/1.1" 304 0
+"GET /static/fotos/js/main.js HTTP/1.1" 304 0
+"GET /fotos/ HTTP/1.1" 200 2268
+Not Found: /media/photos/3.jpg
+"GET /media/photos/3.jpg HTTP/1.1" 404 179
+Not Found: /media/photos/1.jpg
+Not Found: /media/photos/2.jpg
+"GET /media/photos/1.jpg HTTP/1.1" 404 179
+"GET /media/photos/2.jpg HTTP/1.1" 404 179
+Watching for file changes with StatReloader
+"GET / HTTP/1.1" 200 1144
+Not Found: /static/fotos/css/style.css
+Not Found: /static/fotos/js/main.js
+"GET /static/fotos/css/style.css HTTP/1.1" 404 179
+"GET /static/fotos/js/main.js HTTP/1.1" 404 179
+"GET /fotos/ HTTP/1.1" 200 2268
+Not Found: /static/fotos/css/style.css
+"GET /static/fotos/css/style.css HTTP/1.1" 404 179
+Not Found: /static/fotos/js/main.js
+"GET /static/fotos/js/main.js HTTP/1.1" 404 179
+Not Found: /media/photos/1.jpg
+"GET /media/photos/1.jpg HTTP/1.1" 404 179
+Not Found: /media/photos/2.jpg
+"GET /media/photos/2.jpg HTTP/1.1" 404 179
+Not Found: /media/photos/3.jpg
+"GET /media/photos/3.jpg HTTP/1.1" 404 179
+Not Found: /media/photos/1.jpg
+"GET /media/photos/1.jpg HTTP/1.1" 404 179
+Watching for file changes with StatReloader
+"GET / HTTP/1.1" 200 1144
+"GET /static/fotos/css/style.css HTTP/1.1" 200 4131
+"GET /static/fotos/js/main.js HTTP/1.1" 200 2964
+"GET /fotos/ HTTP/1.1" 200 2268
+"GET /media/photos/1.jpg HTTP/1.1" 200 49301
+"GET /media/photos/2.jpg HTTP/1.1" 200 80570
+"GET /media/photos/3.jpg HTTP/1.1" 200 32868
+Watching for file changes with StatReloader
+"GET / HTTP/1.1" 200 1144
+"GET /fotos/ HTTP/1.1" 200 2268
+Watching for file changes with StatReloader
+"GET / HTTP/1.1" 200 1144
+"GET /static/fotos/css/style.css HTTP/1.1" 304 0
+"GET /static/fotos/js/main.js HTTP/1.1" 304 0
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 179
+"GET /fotos/ HTTP/1.1" 200 2268
+Not Found: /media/photos/1.jpg
+Not Found: /media/photos/2.jpg
+"GET /media/photos/1.jpg HTTP/1.1" 404 179
+"GET /media/photos/2.jpg HTTP/1.1" 404 179
+Not Found: /media/photos/3.jpg
+"GET /media/photos/3.jpg HTTP/1.1" 404 179
+"GET / HTTP/1.1" 200 1144
+"GET / HTTP/1.1" 200 1144
+"GET /fotos/ HTTP/1.1" 200 2268
+Not Found: /media/photos/1.jpg
+"GET /media/photos/1.jpg HTTP/1.1" 404 179
+Not Found: /media/photos/2.jpg
+"GET /media/photos/2.jpg HTTP/1.1" 404 179
+Not Found: /media/photos/3.jpg
+"GET /media/photos/3.jpg HTTP/1.1" 404 179
+"GET /fotos/?page=2 HTTP/1.1" 200 2268
+Not Found: /media/photos/4.jpg
+"GET /media/photos/4.jpg HTTP/1.1" 404 179
+Not Found: /media/photos/5.jpg
+"GET /media/photos/5.jpg HTTP/1.1" 404 179
+Not Found: /media/photos/6.jpg
+"GET /media/photos/6.jpg HTTP/1.1" 404 179
+"GET / HTTP/1.1" 200 1144
+Watching for file changes with StatReloader
+"GET / HTTP/1.1" 200 1144
+"GET /fotos/ HTTP/1.1" 200 2268
+"GET /media/photos/1.jpg HTTP/1.1" 200 49301
+"GET /media/photos/3.jpg HTTP/1.1" 200 32868
+"GET /media/photos/2.jpg HTTP/1.1" 200 80570
+"GET /fotos/?page=2 HTTP/1.1" 200 2268
+"GET /media/photos/4.jpg HTTP/1.1" 200 28594
+"GET /media/photos/5.jpg HTTP/1.1" 200 35752
+"GET /media/photos/6.jpg HTTP/1.1" 200 40019
+"GET /fotos/?page=1 HTTP/1.1" 200 2268
+C:\Users\прога\Desktop\PRODAKHN\foto-albom\main\settings.py changed, reloading.
+Watching for file changes with StatReloader
+"GET / HTTP/1.1" 200 1144
+"GET /fotos/ HTTP/1.1" 200 2268
+"GET / HTTP/1.1" 200 1144

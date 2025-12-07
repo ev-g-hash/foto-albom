@@ -22,7 +22,6 @@ wheels/
 
 # Django
 db.sqlite3-journal
-*.log
 local_settings.py
 db.sqlite3-*
 
@@ -48,4 +47,3 @@ Thumbs.db
 #настройки перед деплоем
 foto-albom-txt.txt
 
-settings-pbc.py
