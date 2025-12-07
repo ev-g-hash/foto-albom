@@ -13,6 +13,8 @@ env:
     value: "False"
   - name: DJANGO_ALLOWED_HOSTS
     value: "localhost,127.0.0.1,fotos-pihtulovevgeny.amvera.io"
+  - name: AMVERA_DEPLOYMENT  # Новая переменная
+    value: "true"
 run:
   command: |
     python manage.py collectstatic --noinput &&

@@ -70,10 +70,20 @@ WSGI_APPLICATION = 'main.wsgi.application'
 # =============================================================================
 # DATABASE
 # =============================================================================
+# Определяем, где хранить БД в зависимости от окружения
+if os.getenv('AMVERA_DEPLOYMENT', 'false').lower() == 'true':
+    # На Amvera - используем persistent volume
+    DB_PATH = '/data/db.sqlite3'
+    MEDIA_ROOT = '/data/media'  # Также переносим медиа файлы в /data
+else:
+    # Локальная разработка
+    DB_PATH = BASE_DIR / 'db.sqlite3'
+    MEDIA_ROOT = BASE_DIR / 'media'
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'NAME': DB_PATH,
     }
 }
 
@@ -102,9 +112,7 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [BASE_DIR / 'static']
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 
-MEDIA_ROOT = '/app/media' # на деплой amvera
 MEDIA_URL = '/media/'
-MEDIA_ROOT = BASE_DIR / 'media'  # локалка
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
@@ -159,7 +167,7 @@ LOGGING = {
     },
 }
 
-# # Настройки для статических файлов
+# Настройки для статических файлов
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # =============================================================================
