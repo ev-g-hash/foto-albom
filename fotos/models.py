@@ -14,6 +14,7 @@ def photo_upload_path(instance, filename):
         filename_base = f"temp_{uuid.uuid4().hex[:8]}"
     
     # Возвращаем путь с оригинальным именем файла
+    # Используем относительный путь от MEDIA_ROOT
     return os.path.join('photos/', filename)
 
 class Photo(models.Model):

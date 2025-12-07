@@ -146,7 +146,13 @@ SECURE_HSTS_PRELOAD = False
 # =============================================================================
 # LOGGING
 # =============================================================================
-LOG_FILE = BASE_DIR / 'django.log'
+# Определяем путь для логов в зависимости от окружения
+if os.getenv('AMVERA_DEPLOYMENT', 'false').lower() == 'true':
+    # На Amvera - логи в /data
+    LOG_FILE = '/data/django.log'
+else:
+    # Локальная разработка - логи в корне проекта
+    LOG_FILE = BASE_DIR / 'django.log'
 
 LOGGING = {
     'version': 1,
