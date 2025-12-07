@@ -2,9 +2,6 @@
 .git
 .gitignore
 
-# Docker
-.dockerignore
-
 # Documentation
 README.md
 *.md
@@ -41,6 +38,10 @@ wheels/
 db.sqlite3-journal
 local_settings.py
 
+# Static and Media (не нужны в Docker, создаются при сборке)
+static/
+media/
+
 # OS
 .DS_Store
 Thumbs.db
@@ -58,5 +59,8 @@ htmlcov/
 
 #настройки перед деплоем
 foto-albom-txt.txt
-
 settings-pbc.py
+
+# Логи
+*.log
+django.log

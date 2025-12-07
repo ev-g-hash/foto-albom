@@ -23,7 +23,7 @@ wheels/
 # Django
 db.sqlite3-journal
 local_settings.py
-db.sqlite3-*
+db.sqlite3  # Исключаем только основную БД, но оставляем возможность миграций
 
 # Environment
 .env
@@ -44,6 +44,13 @@ venv.bak/
 .DS_Store
 Thumbs.db
 
+# Static and Media (для экономии места в репозитории)
+static/
+media/
+
+# Logs
+*.log
+django.log
+
 #настройки перед деплоем
 foto-albom-txt.txt
-
