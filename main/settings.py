@@ -106,7 +106,7 @@ STATIC_ROOT = BASE_DIR / 'staticfiles'
 
 MEDIA_ROOT = '/app/media' # на деплой amvera
 MEDIA_URL = '/media/'
-# MEDIA_ROOT = BASE_DIR / 'media'  # локалка
+MEDIA_ROOT = BASE_DIR / 'media'  # локалка
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
@@ -160,14 +160,6 @@ LOGGING = {
         },
     },
 }
-
-# # =============================================================================
-# # WHITENOISE SETTINGS
-# # =============================================================================
-# # WhiteNoise настройки для медиа файлов
-# WHITENOISE_ROOT = MEDIA_ROOT
-# WHITENOISE_MANIFEST_STATIC_FILES = True
-# WHITENOISE_IMMUTABLE_CACHE = False  # Важно для медиа файлов
 
 # # Настройки для статических файлов
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
