@@ -70,15 +70,24 @@ WSGI_APPLICATION = 'main.wsgi.application'
 # =============================================================================
 # DATABASE
 # =============================================================================
+# Отладка - выводим все переменные окружения
+print(f"🔍 DJANGO_DEBUG = {os.getenv('DJANGO_DEBUG')}")
+print(f"🔍 DEBUG = {os.getenv('DJANGO_DEBUG', 'False').lower() == 'true'}")
+print(f"🔍 AMVERA_DEPLOYMENT = {os.getenv('AMVERA_DEPLOYMENT')}")
+print(f"🔍 BASE_DIR = {BASE_DIR}")
+
 # Определяем, где хранить БД в зависимости от окружения
-if os.getenv('AMVERA_DEPLOYMENT', 'false').lower() == 'true':
-    # На Amvera - используем persistent volume
+DEBUG = os.getenv('DJANGO_DEBUG', 'False').lower() == 'true'
+print(f"🔍 Calculated DEBUG = {DEBUG}")
+
+if not DEBUG:  # Production (Amvera)
     DB_PATH = '/data/db.sqlite3'
-    MEDIA_ROOT = '/data/media'  # Также переносим медиа файлы в /data
-else:
-    # Локальная разработка
+    MEDIA_ROOT = '/data/media'
+    print(f"✅ Production mode: DB_PATH = {DB_PATH}, MEDIA_ROOT = {MEDIA_ROOT}")
+else:  # Local development
     DB_PATH = BASE_DIR / 'db.sqlite3'
     MEDIA_ROOT = BASE_DIR / 'media'
+    print(f"🖥️ Local mode: DB_PATH = {DB_PATH}, MEDIA_ROOT = {MEDIA_ROOT}")
 
 DATABASES = {
     'default': {
