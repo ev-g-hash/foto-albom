@@ -1,3 +1,4 @@
+amvera.yml
 meta:
   environment: python
   toolchain:
@@ -16,6 +17,6 @@ env:
 run:
   command: |
     python manage.py collectstatic --noinput &&
-    python manage.py runserver 0.0.0.0:8000
+    gunicorn main.wsgi:application --bind 0.0.0.0:8000 --workers 2 --timeout 30
   persistenceMount: /data
-  containerPort: 8000
+  containerPort: "8000"

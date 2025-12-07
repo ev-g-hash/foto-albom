@@ -170,7 +170,7 @@ LOGGING = {
 # WHITENOISE_IMMUTABLE_CACHE = False  # Важно для медиа файлов
 
 # # Настройки для статических файлов
-# STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # =============================================================================
 # ADDITIONAL SETTINGS
