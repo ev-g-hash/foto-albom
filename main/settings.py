@@ -162,10 +162,12 @@ LOGGING = {
 }
 
 # =============================================================================
-# WHITENOISE SETTINGS  # раскоментить перед продакшн
+# WHITENOISE SETTINGS
 # =============================================================================
 # WhiteNoise настройки для медиа файлов
 WHITENOISE_ROOT = MEDIA_ROOT
+WHITENOISE_MANIFEST_STATIC_FILES = True
+WHITENOISE_IMMUTABLE_CACHE = False  # Важно для медиа файлов
 
 # Настройки для статических файлов
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
