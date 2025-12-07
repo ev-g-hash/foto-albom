@@ -34,12 +34,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'whitenoise.runserver_nostatic', # раскоментить перед продакшн
+    # 'whitenoise.runserver_nostatic', # раскоментить перед продакшн
     'fotos',
 ]
 
 MIDDLEWARE = [
-    'whitenoise.middleware.WhiteNoiseMiddleware', # раскоментить перед продакшн
+    # 'whitenoise.middleware.WhiteNoiseMiddleware', # раскоментить перед продакшн
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -161,16 +161,16 @@ LOGGING = {
     },
 }
 
-# =============================================================================
-# WHITENOISE SETTINGS
-# =============================================================================
-# WhiteNoise настройки для медиа файлов
-WHITENOISE_ROOT = MEDIA_ROOT
-WHITENOISE_MANIFEST_STATIC_FILES = True
-WHITENOISE_IMMUTABLE_CACHE = False  # Важно для медиа файлов
+# # =============================================================================
+# # WHITENOISE SETTINGS
+# # =============================================================================
+# # WhiteNoise настройки для медиа файлов
+# WHITENOISE_ROOT = MEDIA_ROOT
+# WHITENOISE_MANIFEST_STATIC_FILES = True
+# WHITENOISE_IMMUTABLE_CACHE = False  # Важно для медиа файлов
 
-# Настройки для статических файлов
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+# # Настройки для статических файлов
+# STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # =============================================================================
 # ADDITIONAL SETTINGS
