@@ -1,3 +1,4 @@
+version: null
 meta:
   environment: python
   toolchain:
@@ -6,18 +7,10 @@ meta:
 build:
   requirementsPath: requirements.txt
   useCache: true
-env:
-  - name: DJANGO_SECRET_KEY
-    value: "your-secret-key-here"
-  - name: DJANGO_DEBUG
-    value: "False"
-  - name: DJANGO_ALLOWED_HOSTS
-    value: "localhost,127.0.0.1,fotos-pihtulovevgeny.amvera.io"
-  - name: AMVERA_DEPLOYMENT  # Новая переменная
-    value: "true"
 run:
   command: |
     python manage.py collectstatic --noinput &&
     gunicorn main.wsgi:application --bind 0.0.0.0:8000 --workers 2 --timeout 30
   persistenceMount: /data
   containerPort: "8000"
+serviceType: compute
