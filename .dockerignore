@@ -61,3 +61,5 @@ htmlcov/
 
 #настройки перед деплоем
 foto-albom-txt.txt
+
+settings-pbc.py
