@@ -8,10 +8,15 @@ def greeting(request):
 
 def gallery(request):
     photos_list = Photo.objects.all()
-    paginator = Paginator(photos_list, 2)  # Изменено с 3 на 2 фото на страницу
+    
+    # Определяем количество фото на странице (по умолчанию 3 для десктопа)
+    # JavaScript будет корректировать это для мобильных
+    per_page = request.GET.get('per_page', 3)
+    
+    paginator = Paginator(photos_list, per_page)
     page_number = request.GET.get('page')
     page_obj = paginator.get_page(page_number)
-    return render(request, 'gallery.html', {'page_obj': page_obj})
+    return render(request, 'gallery.html', {'page_obj': page_obj, 'per_page': per_page})
 
 def photo_detail(request, pk: int):
     photo = get_object_or_404(Photo, pk=pk)

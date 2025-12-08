@@ -8,7 +8,7 @@
   <div class="card stack-lg">
     <h2 id="gallery-title">Приятные моменты</h2>
 
-    <div class="gallery" id="gallery">
+    <div class="gallery" id="gallery" data-total-photos="{{ photos_list.count|default:page_obj.paginator.count }}">
       {% for photo in page_obj.object_list %}
       <div class="photo">
         <img src="{{ photo.image.url }}" alt="{{ photo.title|default:'Фото' }}" loading="lazy" data-full="{{ photo.image.url }}" data-title="{{ photo.title|default:'' }}" data-desc="{{ photo.description|default:'' }}">
@@ -25,11 +25,11 @@
 
     <nav class="pagination">
       {% if page_obj.has_previous %}
-        <a class="btn" href="?page={{ page_obj.previous_page_number }}">Назад</a>
+        <a class="btn" href="?page={{ page_obj.previous_page_number }}{% if per_page != 3 %}&per_page={{ per_page }}{% endif %}">Назад</a>
       {% endif %}
       <span class="page-info">Страница {{ page_obj.number }} из {{ page_obj.paginator.num_pages }}</span>
       {% if page_obj.has_next %}
-        <a class="btn" href="?page={{ page_obj.next_page_number }}">Далее</a>
+        <a class="btn" href="?page={{ page_obj.next_page_number }}{% if per_page != 3 %}&per_page={{ per_page }}{% endif %}">Далее</a>
       {% endif %}
     </nav>
 
@@ -43,4 +43,13 @@
 <div id="lightbox" class="lightbox" aria-modal="true" role="dialog" aria-label="Просмотр изображения">
   <img id="lightbox-img" alt="Увеличенное фото">
 </div>
+
+<!-- Добавляем скрытый элемент с общим количеством фото для JavaScript -->
+<script type="application/json" id="gallery-data">
+{
+  "totalPhotos": {{ photos_list.count|default:page_obj.paginator.count }},
+  "currentPage": {{ page_obj.number }},
+  "totalPages": {{ page_obj.paginator.num_pages }}
+}
+</script>
 {% endblock %}

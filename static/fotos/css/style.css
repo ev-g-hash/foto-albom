@@ -49,8 +49,9 @@ body {
 /* Основной контейнер страницы */
 .page {
   min-height: 100vh;                /* Минимум на всю высоту экрана */
-  display: grid;
-  place-items: center;              /* Центрируем по вертикали и горизонтали */
+  display: flex;                    /* Изменено с grid на flex */
+  align-items: center;              /* Центрируем по вертикали */
+  justify-content: center;          /* Центрируем по горизонтали */
   padding: 24px;
 }
 
@@ -65,6 +66,10 @@ body {
   backdrop-filter: blur(10px);      /* Размытие фона за карточкой */
   position: relative;
   overflow: hidden;
+  /* ИСПРАВЛЕНИЕ: Явное центрирование */
+  margin: 0 auto;
+  max-width: 100%;
+  box-sizing: border-box;
 }
 
 /* Анимированная рамка сверху карточки */

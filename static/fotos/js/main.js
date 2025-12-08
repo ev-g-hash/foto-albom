@@ -67,6 +67,47 @@ document.addEventListener('DOMContentLoaded', () => {
     tick();
   }
 
+  // НОВОЕ: Адаптивная пагинация
+  function initResponsivePagination() {
+    const galleryDataEl = document.getElementById('gallery-data');
+    if (!galleryDataEl) return;
+
+    const galleryData = JSON.parse(galleryDataEl.textContent);
+    const galleryEl = document.getElementById('gallery');
+    
+    if (!galleryEl) return;
+
+    function updatePagination() {
+      const isMobile = window.innerWidth <= 560;
+      const photosPerPage = isMobile ? 1 : 3;
+      
+      // Если количество фото изменилось, перезагружаем страницу с новыми параметрами
+      const currentURL = new URL(window.location);
+      const currentPerPage = currentURL.searchParams.get('per_page') || '3';
+      
+      if (currentPerPage != photosPerPage.toString()) {
+        currentURL.searchParams.set('per_page', photosPerPage.toString());
+        // Перезагружаем только если мы на странице галереи
+        if (window.location.pathname.includes('/fotos/')) {
+          window.location.href = currentURL.toString();
+        }
+      }
+    }
+
+    // Проверяем при загрузке и изменении размера окна
+    updatePagination();
+    window.addEventListener('resize', () => {
+      // Делаем задержку чтобы избежать слишком частых перезагрузок
+      clearTimeout(window.resizeTimeout);
+      window.resizeTimeout = setTimeout(updatePagination, 300);
+    });
+  }
+
+  // Инициализируем адаптивную пагинацию только на странице галереи
+  if (window.location.pathname.includes('/fotos/')) {
+    initResponsivePagination();
+  }
+
   // Лайтбокс для галереи
   const lightbox = document.getElementById('lightbox');
   const lightboxImg = document.getElementById('lightbox-img');
