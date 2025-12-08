@@ -9,8 +9,11 @@ build:
   useCache: true
 run:
   command: |
-   python manage.py migrate --noinput &&
-    python manage.py collectstatic --noinput &&
+    echo "🔍 Cleaning static files..." &&
+    rm -rf /app/staticfiles/* &&
+    echo "🔍 Collecting static files..." &&
+    python manage.py collectstatic --noinput --clear &&
+    echo "✅ Starting application..." &&
     gunicorn main.wsgi:application --bind 0.0.0.0:8000 --workers 2 --timeout 30
   persistenceMount: /data
   containerPort: "8000"

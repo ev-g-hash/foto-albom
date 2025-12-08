@@ -13,11 +13,14 @@ RUN pip install --no-cache-dir -r requirements.txt
 # Копируем весь проект
 COPY . .
 
-# Создаем папку для медиа файлов
-RUN mkdir -p /app/media
+# Удаляем старые статические файлы
+RUN rm -rf staticfiles/*
 
 # Собираем статические файлы
 RUN python manage.py collectstatic --noinput
+
+# Создаем папку для медиа файлов
+RUN mkdir -p /app/media
 
 # Открываем порт
 EXPOSE 8000
