@@ -720,3 +720,11 @@ Watching for file changes with StatReloader
 C:\Users\прога\Desktop\foto-albom\fotos\views.py changed, reloading.
 Watching for file changes with StatReloader
 Watching for file changes with StatReloader
+"GET / HTTP/1.1" 200 1249
+"GET /static/fotos/css/style.css HTTP/1.1" 200 15791
+"GET /static/fotos/js/main.js HTTP/1.1" 200 5292
+"GET /fotos/ HTTP/1.1" 200 2629
+"GET /fotos/?page=2 HTTP/1.1" 200 2629
+"GET /fotos/conclusion/ HTTP/1.1" 200 1764
+"GET /fotos/ HTTP/1.1" 200 2629
+"GET / HTTP/1.1" 200 1249
