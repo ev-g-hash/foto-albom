@@ -88,11 +88,12 @@ else:  # Local development
     DB_PATH = BASE_DIR / 'db.sqlite3'
     MEDIA_ROOT = BASE_DIR / 'media'
     print(f"🖥️ Local mode: DB_PATH = {DB_PATH}, MEDIA_ROOT = {MEDIA_ROOT}")
-
+ 
+# Временно упростим DATABASE секцию
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': DB_PATH,
+        'NAME': '/data/db.sqlite3' if not DEBUG else BASE_DIR / 'db.sqlite3',
     }
 }
 
