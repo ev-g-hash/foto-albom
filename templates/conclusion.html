@@ -9,15 +9,35 @@
     <h2>Содержание</h2>
     <p class="lead">Список всех загруженных фотографий. Нажмите на описание, чтобы перейти к фото.</p>
 
+    {% if can_upload %}
+    <div class="admin-controls">
+      <a class="btn" href="{% url 'upload_photos' %}">
+        📤 Загрузить фото
+      </a>
+    </div>
+    {% endif %}
+
     <ul class="conclusion-list">
       {% for photo in photos %}
       <li>
-        <a href="{% url 'photo_detail' photo.pk %}">
-          {{ photo.title|default:"Фото без названия" }} — {{ photo.description|default:"Без описания" }}
-        </a>
+        <div class="photo-list-item">
+          <a href="{% url 'photo_detail' photo.pk %}">
+            {{ photo.title|default:"Фото без названия" }} — {{ photo.description|default:"Без описания" }}
+          </a>
+          {% if can_upload %}
+          <button class="delete-btn" onclick="deletePhoto({{ photo.pk }}, '{{ photo.title|default:"Фото"|escapejs }}')" title="Удалить фото">
+            🗑️
+          </button>
+          {% endif %}
+        </div>
       </li>
       {% empty %}
-      <li>Пока ничего нет.</li>
+      <li>
+        <p class="muted">Пока ничего нет.</p>
+        {% if can_upload %}
+        <a href="{% url 'upload_photos' %}">Загрузить первое фото</a>
+        {% endif %}
+      </li>
       {% endfor %}
     </ul>
 
@@ -27,4 +47,64 @@
     </div>
   </div>
 </section>
+
+<!-- JavaScript для удаления фотографий -->
+<script>
+function deletePhoto(photoId, photoTitle) {
+    if (confirm(`Вы уверены, что хотите удалить "${photoTitle}"?`)) {
+        fetch(`/fotos/delete/${photoId}/`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+                'X-CSRFToken': getCookie('csrftoken'),
+                'X-Requested-With': 'XMLHttpRequest'
+            }
+        })
+        .then(response => response.json())
+        .then(data => {
+            if (data.success) {
+                // Удаляем элемент из списка
+                const listItem = document.querySelector(`button[onclick="deletePhoto(${photoId}`).closest('li');
+                if (listItem) {
+                    listItem.remove();
+                }
+                showMessage(data.message, 'success');
+            } else {
+                showMessage(data.error, 'error');
+            }
+        })
+        .catch(error => {
+            showMessage('Ошибка при удалении фотографии', 'error');
+        });
+    }
+}
+
+function getCookie(name) {
+    const value = `; ${document.cookie}`;
+    const parts = value.split(`; ${name}=`);
+    if (parts.length === 2) return parts.pop().split(';').shift();
+}
+
+function showMessage(text, type) {
+    // Создаём контейнер сообщений если его нет
+    let messagesContainer = document.querySelector('.messages');
+    if (!messagesContainer) {
+        messagesContainer = document.createElement('div');
+        messagesContainer.className = 'messages';
+        document.querySelector('.card').insertBefore(messagesContainer, document.querySelector('.lead').nextSibling);
+    }
+    
+    const message = document.createElement('div');
+    message.className = `message ${type}`;
+    message.textContent = text;
+    messagesContainer.appendChild(message);
+    
+    // Удаляем сообщение через 5 секунд
+    setTimeout(() => {
+        if (message.parentNode) {
+            message.remove();
+        }
+    }, 5000);
+}
+</script>
 {% endblock %}

@@ -67,7 +67,7 @@ document.addEventListener('DOMContentLoaded', () => {
     tick();
   }
 
-  // НОВОЕ: Адаптивная пагинация
+  // Адаптивная пагинация
   function initResponsivePagination() {
     const galleryDataEl = document.getElementById('gallery-data');
     if (!galleryDataEl) return;
@@ -130,3 +130,64 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 });
+
+// Функции для удаления фотографий (глобальные)
+function deletePhoto(photoId, photoTitle) {
+  if (confirm(`Вы уверены, что хотите удалить "${photoTitle}"?`)) {
+    fetch(`/fotos/delete/${photoId}/`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'X-CSRFToken': getCookie('csrftoken'),
+        'X-Requested-With': 'XMLHttpRequest'
+      }
+    })
+    .then(response => response.json())
+    .then(data => {
+      if (data.success) {
+        // Удаляем элемент из списка
+        const listItem = document.querySelector(`button[onclick="deletePhoto(${photoId}`).closest('li');
+        if (listItem) {
+          listItem.remove();
+        }
+        showMessage(data.message, 'success');
+      } else {
+        showMessage(data.error, 'error');
+      }
+    })
+    .catch(error => {
+      showMessage('Ошибка при удалении фотографии', 'error');
+    });
+  }
+}
+
+function getCookie(name) {
+  const value = `; ${document.cookie}`;
+  const parts = value.split(`; ${name}=`);
+  if (parts.length === 2) return parts.pop().split(';').shift();
+}
+
+function showMessage(text, type) {
+  // Создаём контейнер сообщений если его нет
+  let messagesContainer = document.querySelector('.messages');
+  if (!messagesContainer) {
+    messagesContainer = document.createElement('div');
+    messagesContainer.className = 'messages';
+    const card = document.querySelector('.card');
+    if (card) {
+      card.insertBefore(messagesContainer, card.firstChild.nextSibling);
+    }
+  }
+  
+  const message = document.createElement('div');
+  message.className = `message ${type}`;
+  message.textContent = text;
+  messagesContainer.appendChild(message);
+  
+  // Удаляем сообщение через 5 секунд
+  setTimeout(() => {
+    if (message.parentNode) {
+      message.remove();
+    }
+  }, 5000);
+}

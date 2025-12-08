@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Загрузка фотографий{% endblock %}
+
+{% block content %}
+<section class="page">
+  <div class="card stack-lg">
+    <h2>Загрузка фотографий</h2>
+    <p class="lead">Добавьте новые фотографии в ваш альбом</p>
+
+    <!-- Обычная форма загрузки -->
+    <div class="upload-section active">
+      <form method="POST" enctype="multipart/form-data" class="upload-form">
+        {% csrf_token %}
+        <div class="form-group">
+          <label for="images">Выберите фотографии:</label>
+          <input type="file" name="images" id="images" multiple accept="image/*" capture="environment" required>
+          <small class="form-hint">Поддерживаются: JPG, PNG, GIF, WebP. Максимум 5MB на файл.</small>
+        </div>
+        
+        <div class="form-group">
+          <label for="title">Название (опционально):</label>
+          <input type="text" name="title" id="title" class="form-input" placeholder="Название для всех фото">
+        </div>
+        
+        <div class="form-group">
+          <label for="description">Описание (опционально):</label>
+          <textarea name="description" id="description" class="form-textarea" placeholder="Описание для всех фото"></textarea>
+        </div>
+        
+        <button type="submit" class="btn">Загрузить</button>
+      </form>
+    </div>
+
+    <div class="btn-row">
+      <a class="btn" href="{% url 'conclusion' %}">К содержанию</a>
+      <a class="btn secondary" href="{% url 'gallery' %}">К галерее</a>
+    </div>
+  </div>
+</section>
+{% endblock %}
