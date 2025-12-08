@@ -702,3 +702,150 @@ h1 {
     font-size: 1.8rem;
   }
 }
+
+/* =============================================================================
+   АВТОРИЗАЦИЯ
+   ============================================================================= */
+
+/* Кнопка авторизации */
+.auth-btn {
+  background: linear-gradient(135deg, #7c3aed, #a855f7);
+  position: relative;
+}
+
+/* Уведомление о режиме редактирования */
+.auth-notice {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 16px;
+  padding: 12px 16px;
+  background: rgba(124,58,237,0.1);
+  border: 1px solid rgba(124,58,237,0.3);
+  border-radius: 8px;
+  color: #c4b5fd;
+  font-size: 0.9rem;
+}
+
+.notice-icon {
+  font-size: 1.1rem;
+}
+
+.notice-text {
+  font-weight: 500;
+}
+
+/* Форма авторизации */
+.login-form {
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.login-btn {
+  width: 100%;
+  margin-top: 8px;
+  background: linear-gradient(135deg, #7c3aed, #a855f7);
+}
+
+/* Уведомления на странице авторизации */
+.login-notice {
+  margin-top: 20px;
+  padding: 16px;
+  background: rgba(96,165,250,0.05);
+  border: 1px solid rgba(96,165,250,0.2);
+  border-radius: 10px;
+}
+
+.notice-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: 8px;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+.notice-item:last-child {
+  margin-bottom: 0;
+}
+
+.notice-item .notice-icon {
+  font-size: 1rem;
+  opacity: 0.8;
+}
+
+/* Элемент списка фотографий с кнопкой удаления - ИСПРАВЛЕНО */
+.photo-list-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.photo-list-item a {
+  flex: 1; /* Занимает всё доступное место */
+  display: block;
+}
+
+/* Кнопка удаления */
+.delete-btn {
+  appearance: none;
+  border: none;
+  background: rgba(244,63,94,0.1);
+  color: #f87171;
+  border-radius: 6px;
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+  opacity: 0.7;
+  flex-shrink: 0; /* Не сжимается */
+}
+
+.delete-btn:hover {
+  background: rgba(244,63,94,0.2);
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+/* Админ-контролы */
+.admin-controls {
+  margin-bottom: 20px;
+  padding: 16px;
+  background: rgba(96,165,250,0.05);
+  border: 1px solid rgba(96,165,250,0.2);
+  border-radius: 10px;
+  text-align: center;
+}
+
+/* Мобильная адаптивность для авторизации */
+@media (max-width: 480px) {
+  .auth-notice {
+    flex-direction: column;
+    gap: 6px;
+    text-align: center;
+  }
+  
+  .login-form {
+    max-width: 100%;
+  }
+  
+  .notice-item {
+    flex-direction: column;
+    gap: 4px;
+    text-align: center;
+  }
+  
+  .btn-row {
+    flex-direction: column;
+  }
+  
+  .btn {
+    width: 100%;
+    text-align: center;
+  }
+}

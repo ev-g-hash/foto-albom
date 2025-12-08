@@ -2,13 +2,13 @@ document.addEventListener('DOMContentLoaded', () => {
   // Лёгкая печать текста на главной
   const typedEl = document.getElementById('typed');
   if (typedEl) {
-    const text = 'Коллекция самых дорогих и незабываемых моментов, сохранённых в этом цифровом альбоме. Пусть каждая фотография напоминает о прекрасных мгновениях жизни!';
+    const text = 'Цифровой альбом Нурмеева Дениса Рашитовича!';
     let i = 0;
     const timer = setInterval(() => {
       typedEl.textContent += text[i];
       i++;
       if (i >= text.length) clearInterval(timer);
-    }, 30);
+    }, 80); // Немного быстрее для короткого текста
   }
 
   // Конфетти на главной (Canvas) - улучшенное

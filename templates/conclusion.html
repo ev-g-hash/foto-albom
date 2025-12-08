@@ -7,8 +7,7 @@
 <section class="page">
   <div class="card stack-lg">
     <h2>Содержание</h2>
-    <p class="lead">Список всех загруженных фотографий. Нажмите на описание, чтобы перейти к фото.</p>
-
+    
     {% if can_upload %}
     <div class="admin-controls">
       <a class="btn" href="{% url 'upload_photos' %}">
@@ -16,6 +15,8 @@
       </a>
     </div>
     {% endif %}
+    
+    <p class="lead">Список всех загруженных фотографий. Нажмите на описание, чтобы перейти к фото.</p>
 
     <ul class="conclusion-list">
       {% for photo in photos %}

@@ -5,6 +5,7 @@ from django.http import JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from django.views.decorators.http import require_http_methods
 from django.contrib.auth.decorators import login_required, user_passes_test
+from django.contrib.auth import authenticate, login, logout
 from django.core.files.storage import default_storage
 from django.core.files.base import ContentFile
 from django.shortcuts import get_object_or_404
@@ -150,3 +151,34 @@ def delete_photo(request, pk):
         return JsonResponse({'success': True, 'message': 'Фотография удалена'})
     except Exception as e:
         return JsonResponse({'success': False, 'error': f'Ошибка при удалении: {str(e)}'})
+
+# =============================================================================
+# СИСТЕМА АВТОРИЗАЦИИ
+# =============================================================================
+
+def user_login(request):
+    """Страница входа"""
+    if request.method == 'POST':
+        username = request.POST.get('username')
+        password = request.POST.get('password')
+        
+        user = authenticate(request, username=username, password=password)
+        
+        if user is not None:
+            if user.is_superuser:
+                login(request, user)
+                messages.success(request, 'Вы успешно вошли в систему!')
+                return redirect('conclusion')
+            else:
+                messages.error(request, 'У вас нет прав администратора')
+        else:
+            messages.error(request, 'Неверное имя пользователя или пароль')
+    
+    return render(request, 'login.html')
+
+@login_required
+def user_logout(request):
+    """Выход из системы"""
+    logout(request)
+    messages.success(request, 'Вы успешно вышли из системы')
+    return redirect('greeting')
