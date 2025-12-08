@@ -13,7 +13,9 @@
       <div class="photo">
         <img src="{{ photo.image.url }}" alt="{{ photo.title|default:'Фото' }}" loading="lazy" data-full="{{ photo.image.url }}" data-title="{{ photo.title|default:'' }}" data-desc="{{ photo.description|default:'' }}">
         {% if photo.description %}
-        <a class="photo-desc" href="{% url 'photo_detail' photo.pk %}">{{ photo.description }}</a>
+        <div class="photo-desc">
+          <a href="{% url 'photo_detail' photo.pk %}">{{ photo.description }}</a>
+        </div>
         {% endif %}
       </div>
       {% empty %}

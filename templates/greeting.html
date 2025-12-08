@@ -1,20 +1,29 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block title %}Поздравление с Днём Рождения{% endblock %}
+{% block title %}Фотоальбом{% endblock %}
 
 {% block content %}
 <section id="page-greeting" class="page active" aria-labelledby="title">
   <canvas id="confetti"></canvas>
   <div class="card stack-lg">
-    <h1 id="title">С Днём Рождения!</h1>
-    <p class="lead">05 декабря 2025 года - это случилось!</p>
-
+    <h1 id="title">Фотоальбом</h1>
+    <div class="name-section">
+      <h2 class="name">Нурмеев Денис Рашитович</h2>
+      <div class="birth-year">
+        <span class="year-label">Год рождения:</span>
+        <span class="year-number">1978</span>
+      </div>
+    </div>
+    
     <div class="type" id="typed" aria-live="polite"></div>
-    <div class="muted">Это маленькое поздравление написал твой друг Евгений на языке программирования Python, использовал стили css и анимация javascript</div>
+    <div class="muted">Этот фотоальбом содержит самые яркие моменты жизни</div>
 
     <div class="btn-row">
-      <a class="btn" href="{% url 'gallery' %}" aria-label="Перейти к приятным моментам">Приятные моменты</a>
+      <a class="btn" href="{% url 'gallery' %}" aria-label="Перейти к фотографиям">
+        <span class="btn-text">Посмотреть фотографии</span>
+        <span class="btn-icon">📸</span>
+      </a>
     </div>
   </div>
 </section>
