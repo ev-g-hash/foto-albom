@@ -632,3 +632,91 @@ Not Found: /favicon.ico
 "GET /fotos/?page=2 HTTP/1.1" 200 2361
 "GET /static/fotos/css/style.css HTTP/1.1" 304 0
 "GET / HTTP/1.1" 200 1249
+Watching for file changes with StatReloader
+"GET / HTTP/1.1" 200 1249
+"GET /static/fotos/css/style.css HTTP/1.1" 200 21458
+"GET /static/fotos/js/main.js HTTP/1.1" 200 11325
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 4408
+"GET /fotos/ HTTP/1.1" 200 2234
+"GET /static/fotos/js/main.js HTTP/1.1" 304 0
+"GET /media/photos/1.jpg HTTP/1.1" 304 0
+"GET /media/photos/2.jpg HTTP/1.1" 304 0
+"GET /fotos/?page=2&per_page= HTTP/1.1" 200 2304
+"GET /media/photos/4.jpg HTTP/1.1" 304 0
+"GET /media/photos/3.jpg HTTP/1.1" 304 0
+"GET /fotos/?page=2&per_page= HTTP/1.1" 200 2304
+"GET /static/fotos/js/main.js HTTP/1.1" 304 0
+"GET /fotos/?page=2&per_page= HTTP/1.1" 200 2304
+"GET /fotos/?page=2&per_page= HTTP/1.1" 200 2304
+"GET / HTTP/1.1" 200 1249
+"GET /fotos/ HTTP/1.1" 200 2234
+"GET /static/fotos/js/main.js HTTP/1.1" 304 0
+"GET /fotos/?page=2&per_page= HTTP/1.1" 200 2304
+"GET /fotos/?page=3&per_page= HTTP/1.1" 200 2234
+"GET /media/photos/6.jpg HTTP/1.1" 304 0
+"GET /media/photos/5.jpg HTTP/1.1" 304 0
+"GET /fotos/conclusion/ HTTP/1.1" 200 6981
+"GET /static/fotos/js/main.js HTTP/1.1" 304 0
+Session data corrupted
+"POST /fotos/login/ HTTP/1.1" 200 17
+"POST /fotos/login/ HTTP/1.1" 200 17
+"POST /fotos/login/ HTTP/1.1" 200 17
+"POST /fotos/login/ HTTP/1.1" 200 17
+"POST /fotos/login/ HTTP/1.1" 200 17
+"POST /fotos/login/ HTTP/1.1" 200 17
+"POST /fotos/login/ HTTP/1.1" 200 17
+Forbidden (CSRF token from POST incorrect.): /fotos/upload/
+"POST /fotos/upload/ HTTP/1.1" 403 2545
+"POST /fotos/login/ HTTP/1.1" 200 17
+"POST /fotos/login/ HTTP/1.1" 200 17
+"POST /fotos/login/ HTTP/1.1" 200 17
+"POST /fotos/login/ HTTP/1.1" 200 17
+"GET / HTTP/1.1" 200 1249
+"GET /static/fotos/css/style.css HTTP/1.1" 304 0
+"GET /static/fotos/js/main.js HTTP/1.1" 304 0
+"GET /fotos/ HTTP/1.1" 200 2234
+- Broken pipe from ('127.0.0.1', 60192)
+"GET /fotos/?page=2&per_page= HTTP/1.1" 200 2304
+"GET / HTTP/1.1" 200 1249
+"GET /fotos/ HTTP/1.1" 200 2234
+"GET / HTTP/1.1" 200 1249
+"GET /static/fotos/js/main.js HTTP/1.1" 304 0
+"GET /fotos/ HTTP/1.1" 200 2234
+"GET /fotos/?page=2&per_page= HTTP/1.1" 200 2304
+"GET /fotos/?page=3&per_page= HTTP/1.1" 200 2234
+"GET /fotos/?page=2&per_page= HTTP/1.1" 200 2304
+"GET /fotos/?page=3&per_page= HTTP/1.1" 200 2234
+"GET /fotos/?page=3&per_page= HTTP/1.1" 200 2234
+"GET /fotos/?page=2&per_page= HTTP/1.1" 200 2304
+"GET /fotos/conclusion/ HTTP/1.1" 200 6981
+"GET /fotos/conclusion/ HTTP/1.1" 200 6981
+"GET /static/fotos/js/main.js HTTP/1.1" 304 0
+"POST /fotos/login/ HTTP/1.1" 200 17
+"GET /fotos/ HTTP/1.1" 200 2234
+"GET /static/fotos/css/style.css HTTP/1.1" 304 0
+"GET /static/fotos/js/main.js HTTP/1.1" 304 0
+"GET /fotos/?page=2&per_page= HTTP/1.1" 200 2304
+"GET /fotos/?page=3&per_page= HTTP/1.1" 200 2234
+"GET /fotos/conclusion/ HTTP/1.1" 200 6981
+"POST /fotos/login/ HTTP/1.1" 200 17
+Forbidden (CSRF token from POST incorrect.): /fotos/login/
+"POST /fotos/login/ HTTP/1.1" 403 2545
+"POST /fotos/login/ HTTP/1.1" 200 17
+Forbidden (CSRF token from POST incorrect.): /fotos/upload/
+"POST /fotos/upload/ HTTP/1.1" 403 2545
+Watching for file changes with StatReloader
+"GET / HTTP/1.1" 200 1249
+"GET /static/fotos/js/main.js HTTP/1.1" 304 0
+"GET /static/fotos/css/style.css HTTP/1.1" 304 0
+- Broken pipe from ('127.0.0.1', 60296)
+"GET /fotos/ HTTP/1.1" 200 2234
+"GET /fotos/?page=2&per_page= HTTP/1.1" 200 2304
+"GET /fotos/?page=3&per_page= HTTP/1.1" 200 2234
+"GET /fotos/?page=3&per_page= HTTP/1.1" 200 2234
+"GET /fotos/?page=3&per_page= HTTP/1.1" 200 2234
+"GET /fotos/?page=3&per_page= HTTP/1.1" 200 2234
+"GET /fotos/?page=3&per_page= HTTP/1.1" 200 2234
+C:\Users\прога\Desktop\foto-albom\fotos\views.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
