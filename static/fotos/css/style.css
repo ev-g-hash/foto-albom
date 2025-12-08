@@ -1,51 +1,73 @@
+/* =============================================================================
+   БАЗОВЫЕ НАСТРОЙКИ И ПЕРЕМЕННЫЕ
+   ============================================================================= */
+
+/* Цветовая палитра и основные переменные */
 :root {
-  --bg: #0f172a;
-  --bg2: #111827;
-  --card: rgba(255,255,255,0.06);
-  --text: #e5e7eb;
-  --muted: #9ca3af;
-  --primary: #60a5fa;
-  --primary-contrast: #0b1220;
-  --accent: #f59e0b;
-  --gold: #ffd700;
-  --rose: #f43f5e;
-  --purple: #a855f7;
-  --radius: 14px;
-  --shadow: 0 10px 30px rgba(0,0,0,0.35);
+  --bg: #0f172a;                    /* Основной фон */
+  --bg2: #111827;                   /* Второй фон (резервный) */
+  --card: rgba(255,255,255,0.06);   /* Полупрозрачный фон карточек */
+  --text: #e5e7eb;                  /* Основной цвет текста */
+  --muted: #9ca3af;                 /* Приглушённый текст */
+  --primary: #60a5fa;               /* Основной акцентный цвет */
+  --primary-contrast: #0b1220;      /* Контрастный цвет для primary */
+  --accent: #f59e0b;                /* Дополнительный акцент */
+  --gold: #ffd700;                  /* Золотой цвет */
+  --rose: #f43f5e;                  /* Розовый цвет */
+  --purple: #a855f7;                /* Фиолетовый цвет */
+  --radius: 14px;                   /* Радиус скругления */
+  --shadow: 0 10px 30px rgba(0,0,0,0.35); /* Тень */
 }
 
-* { box-sizing: border-box; }
-html, body { height: 100%; }
+/* Базовые стили для всех элементов */
+* { 
+  box-sizing: border-box;           /* Включаем padding и border в размер элемента */
+}
+
+/* Настройки html и body */
+html, body { 
+  height: 100%;                     /* Полная высота экрана */
+}
+
+/* Основные стили body */
 body {
   margin: 0;
   font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  /* Градиентный фон с тремя слоями */
   background: radial-gradient(1200px 600px at 20% -10%, #1f2937, transparent),
               radial-gradient(1000px 500px at 120% 10%, #1d4ed8, transparent),
               radial-gradient(800px 400px at 50% 120%, #7c3aed, transparent),
               var(--bg);
   color: var(--text);
-  overflow-x: hidden;
+  overflow-x: hidden;               /* Скрываем горизонтальную прокрутку */
 }
 
+/* =============================================================================
+   СТРУКТУРА СТРАНИЦЫ И КОНТЕЙНЕРЫ
+   ============================================================================= */
+
+/* Основной контейнер страницы */
 .page {
-  min-height: 100vh;
+  min-height: 100vh;                /* Минимум на всю высоту экрана */
   display: grid;
-  place-items: center;
+  place-items: center;              /* Центрируем по вертикали и горизонтали */
   padding: 24px;
 }
 
+/* Карточка с контентом */
 .card {
-  width: min(980px, 92vw);
+  width: min(980px, 92vw);          /* Максимальная ширина 980px или 92% экрана */
   background: var(--card);
   border: 1px solid rgba(255,255,255,0.08);
   border-radius: var(--radius);
   box-shadow: var(--shadow);
   padding: 28px;
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);      /* Размытие фона за карточкой */
   position: relative;
   overflow: hidden;
 }
 
+/* Анимированная рамка сверху карточки */
 .card::before {
   content: '';
   position: absolute;
@@ -58,27 +80,130 @@ body {
   animation: shimmer 3s ease-in-out infinite;
 }
 
+/* Анимация мерцания рамки */
 @keyframes shimmer {
   0%, 100% { background-position: 0% 50%; }
   50% { background-position: 100% 50%; }
 }
 
-.stack-lg > * + * { margin-top: 18px; }
+/* =============================================================================
+   ТИПОГРАФИКА
+   ============================================================================= */
 
-h1, h2 { margin: 0; }
+/* Отступы между элементами */
+.stack-lg > * + * { 
+  margin-top: 18px;                 /* Отступ сверху для всех элементов кроме первого */
+}
 
-.lead { color: var(--text); opacity: 0.9; font-size: 1.05rem; }
-.muted { color: var(--muted); }
+/* Заголовки */
+h1, h2 { 
+  margin: 0;                        /* Убираем стандартные отступы */
+}
 
+/* Стили для основного заголовка (Фотоальбом) */
+h1 { 
+  margin: 0;
+  font-size: 3rem;
+  font-weight: 700;
+  text-align: center;
+  background: linear-gradient(135deg, var(--gold), var(--rose));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-shadow: 0 0 30px rgba(255, 215, 0, 0.3);
+}
+
+/* Стили для второстепенных заголовков */
+.lead { 
+  color: var(--text); 
+  opacity: 0.9; 
+  font-size: 1.05rem; 
+}
+
+/* Приглушённый текст */
+.muted { 
+  color: var(--muted); 
+}
+
+/* =============================================================================
+   ГЛАВНАЯ СТРАНИЦА - ФОТОАЛЬБОМ
+   ============================================================================= */
+
+/* Секция с именем и годом рождения */
+.name-section {
+  text-align: center;
+  padding: 20px 0;
+  background: rgba(255, 215, 0, 0.05);
+  border-radius: 12px;
+  border: 1px solid rgba(255, 215, 0, 0.2);
+  position: relative;
+}
+
+/* Звёздочка перед именем */
+.name-section::before {
+  content: '⭐';
+  position: absolute;
+  top: -10px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 1.5rem;
+  background: var(--bg);
+  padding: 0 10px;
+}
+
+/* Имя */
+.name {
+  margin: 0 0 15px 0;
+  font-size: 2.2rem;
+  font-weight: 600;
+  color: var(--text);
+  text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+}
+
+/* Блок с годом рождения */
+.birth-year {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-size: 1.1rem;
+}
+
+/* Подпись к году */
+.year-label {
+  color: var(--muted);
+}
+
+/* Сам год рождения */
+.year-number {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: var(--gold);
+  text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+/* Анимация пульсации года */
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+}
+
+/* =============================================================================
+   КНОПКИ
+   ============================================================================= */
+
+/* Контейнер для кнопок */
 .btn-row {
   display: flex;
   gap: 12px;
-  flex-wrap: wrap;
+  flex-wrap: wrap;                  /* Кнопки переносятся на новую строку при нехватке места */
   margin-top: 12px;
 }
 
+/* Основные стили кнопок */
 .btn {
-  appearance: none;
+  appearance: none;                 /* Убираем стандартные стили браузера */
   border: none;
   background: var(--primary);
   color: var(--primary-contrast);
@@ -93,8 +218,18 @@ h1, h2 { margin: 0; }
   transition: transform .08s ease, box-shadow .2s ease, background .2s ease;
   box-shadow: 0 6px 18px rgba(96,165,250,.35);
 }
-.btn:hover { transform: translateY(-1px); }
-.btn:active { transform: translateY(0); }
+
+/* Эффект при наведении */
+.btn:hover { 
+  transform: translateY(-1px);     /* Кнопка поднимается вверх */
+}
+
+/* Эффект при нажатии */
+.btn:active { 
+  transform: translateY(0);        /* Кнопка возвращается на место */
+}
+
+/* Вторичные кнопки */
 .btn.secondary {
   background: transparent;
   color: var(--text);
@@ -102,115 +237,75 @@ h1, h2 { margin: 0; }
   box-shadow: none;
 }
 
-/* Главная страница - стили для фотоальбома */
-h1 { 
-  margin: 0;
-  font-size: 3rem;
-  font-weight: 700;
-  text-align: center;
-  background: linear-gradient(135deg, var(--gold), var(--rose));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  text-shadow: 0 0 30px rgba(255, 215, 0, 0.3);
-}
+/* =============================================================================
+   КОНФЕТТИ (ГЛАВНАЯ СТРАНИЦА)
+   ============================================================================= */
 
-.name-section {
-  text-align: center;
-  padding: 20px 0;
-  background: rgba(255, 215, 0, 0.05);
-  border-radius: 12px;
-  border: 1px solid rgba(255, 215, 0, 0.2);
-  position: relative;
-}
-
-.name-section::before {
-  content: '⭐';
-  position: absolute;
-  top: -10px;
-  left: 50%;
-  transform: translateX(-50%);
-  font-size: 1.5rem;
-  background: var(--bg);
-  padding: 0 10px;
-}
-
-.name {
-  margin: 0 0 15px 0;
-  font-size: 2.2rem;
-  font-weight: 600;
-  color: var(--text);
-  text-shadow: 0 2px 4px rgba(0,0,0,0.3);
-}
-
-.birth-year {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  font-size: 1.1rem;
-}
-
-.year-label {
-  color: var(--muted);
-}
-
-.year-number {
-  font-size: 1.8rem;
-  font-weight: 700;
-  color: var(--gold);
-  text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
-  animation: pulse 2s ease-in-out infinite;
-}
-
-@keyframes pulse {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.05); }
-}
-
+/* Canvas для конфетти */
 #confetti {
   position: fixed;
-  inset: 0;
-  pointer-events: none;
+  inset: 0;                        /* Занимает весь экран */
+  pointer-events: none;            /* Не перехватывает клики */
+  z-index: -1;                     /* Слой ниже контента */
 }
 
-/* Gallery */
+/* =============================================================================
+   ГАЛЕРЕЯ
+   ============================================================================= */
+
+/* Контейнер галереи */
 .gallery {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 16px;
-}
-@media (max-width: 900px) {
-  .gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-}
-@media (max-width: 560px) {
-  .gallery { grid-template-columns: 1fr; }
+  grid-template-columns: repeat(3, minmax(0, 1fr)); /* 3 колонки на десктопе */
+  gap: 16px;                       /* Промежуток между элементами */
 }
 
+/* Планшет - 2 колонки */
+@media (max-width: 900px) {
+  .gallery { 
+    grid-template-columns: repeat(2, minmax(0, 1fr)); 
+  }
+}
+
+/* Мобильный - 1 колонка */
+@media (max-width: 560px) {
+  .gallery { 
+    grid-template-columns: 1fr; 
+  }
+}
+
+/* Контейнер отдельной фотографии */
 .photo {
   display: flex;
-  flex-direction: column;
-  gap: 8px;
+  flex-direction: column;          /* Элементы располагаются вертикально */
+  gap: 8px;                        /* Промежуток между фото и описанием */
 }
+
+/* Стили изображений в галерее */
 .photo img {
-  width: 100%;
-  height: 220px;
-  object-fit: cover;
+  width: 100%;                     /* Полная ширина контейнера */
+  height: 220px;                   /* Фиксированная высота */
+  object-fit: cover;               /* Обрезаем изображение чтобы заполнить контейнер */
   border-radius: 12px;
-  cursor: zoom-in;
+  cursor: zoom-in;                 /* Курсор "увеличительное стекло" */
   border: 1px solid rgba(255,255,255,.08);
   box-shadow: 0 10px 20px rgba(0,0,0,.25);
   transition: transform .2s ease, box-shadow .2s ease;
 }
+
+/* Эффект при наведении на фото */
 .photo img:hover {
-  transform: translateY(-2px) scale(1.05);
+  transform: translateY(-2px) scale(1.05); /* Поднимаем и увеличиваем */
   box-shadow: 0 14px 28px rgba(0,0,0,.35);
 }
+
+/* Контейнер описания фото */
 .photo-desc {
   margin: 0;
   padding: 0;
 }
 
+/* Ссылка-описание фото */
 .photo-desc a {
   color: var(--muted);
   text-decoration: none;
@@ -223,13 +318,18 @@ h1 {
   transition: all 0.2s ease;
 }
 
+/* Эффект при наведении на описание */
 .photo-desc a:hover {
   color: var(--text);
   background: rgba(255,255,255,0.08);
   text-decoration: none;
 }
 
-/* Pagination */
+/* =============================================================================
+   ПАГИНАЦИЯ
+   ============================================================================= */
+
+/* Контейнер пагинации */
 .pagination {
   display: flex;
   align-items: center;
@@ -237,50 +337,80 @@ h1 {
   gap: 12px;
   margin-top: 12px;
 }
-.page-info { color: var(--muted); }
 
-/* Lightbox */
+/* Информация о странице */
+.page-info { 
+  color: var(--muted); 
+}
+
+/* =============================================================================
+   ЛАЙТБОКС (УВЕЛИЧЕННОЕ ФОТО)
+   ============================================================================= */
+
+/* Затемнённый фон лайтбокса */
 .lightbox {
   position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,.72);
-  display: none;
+  inset: 0;                        /* Всё окно */
+  background: rgba(0,0,0,.72);     /* Полупрозрачный чёрный фон */
+  display: none;                   /* Скрыт по умолчанию */
   align-items: center;
   justify-content: center;
-  z-index: 1000;
+  z-index: 1000;                   /* Слой поверх всего */
   padding: 24px;
 }
-.lightbox.open { display: flex; }
+
+/* Открытый лайтбокс */
+.lightbox.open { 
+  display: flex; 
+}
+
+/* Изображение в лайтбоксе */
 .lightbox img {
-  max-width: min(95vw, 1200px);
-  max-height: 85vh;
+  max-width: min(95vw, 1200px);    /* Максимальная ширина */
+  max-height: 85vh;                /* Максимальная высота */
   border-radius: 12px;
   box-shadow: 0 30px 60px rgba(0,0,0,.5);
 }
 
-/* Detail */
+/* =============================================================================
+   ДЕТАЛЬНЫЙ ПРОСМОТР ФОТО
+   ============================================================================= */
+
+/* Контейнер детального просмотра */
 .photo-detail {
   display: grid;
   gap: 14px;
 }
+
+/* Изображение в детальном просмотре */
 .detail-img {
   width: 100%;
   max-height: 70vh;
-  object-fit: contain;
+  object-fit: contain;             /* Показываем полностью без обрезки */
   border-radius: 12px;
   border: 1px solid rgba(255,255,255,.08);
   background: rgba(255,255,255,.03);
 }
-.detail-desc { color: var(--muted); }
 
-/* Conclusion list */
+/* Описание в детальном просмотре */
+.detail-desc { 
+  color: var(--muted); 
+}
+
+/* =============================================================================
+   СТРАНИЦА СОДЕРЖАНИЯ
+   ============================================================================= */
+
+/* Список фотографий */
 .conclusion-list {
-  list-style: none;
+  list-style: none;                /* Убираем маркеры списка */
   padding: 0;
   margin: 0;
   display: grid;
-  gap: 8px;
+  gap: 8px;                        /* Промежуток между элементами */
 }
+
+/* Элементы списка фотографий */
 .conclusion-list a {
   color: var(--text);
   text-decoration: none;
@@ -290,11 +420,17 @@ h1 {
   border: 1px solid rgba(255,255,255,0.08);
   display: inline-block;
 }
+
+/* Эффект при наведении на элемент списка */
 .conclusion-list a:hover {
   background: rgba(255,255,255,0.08);
 }
 
-/* Адаптивность */
+/* =============================================================================
+   МОБИЛЬНАЯ АДАПТИВНОСТЬ
+   ============================================================================= */
+
+/* Планшетная версия */
 @media (max-width: 768px) {
   h1 {
     font-size: 2.2rem;
@@ -311,6 +447,9 @@ h1 {
   .card {
     padding: 20px;
     margin: 12px;
+    /* ИСПРАВЛЕНИЕ: Центрируем контент на мобильных */
+    margin-left: auto;
+    margin-right: auto;
   }
   
   .birth-year {
@@ -319,6 +458,7 @@ h1 {
   }
 }
 
+/* Мобильная версия */
 @media (max-width: 480px) {
   h1 {
     font-size: 1.8rem;
@@ -331,5 +471,15 @@ h1 {
   .btn {
     padding: 12px 20px;
     font-size: 0.9rem;
+  }
+  
+  /* ИСПРАВЛЕНИЕ: Дополнительное центрирование для очень маленьких экранов */
+  .page {
+    padding: 12px;
+  }
+  
+  .card {
+    margin-left: auto;
+    margin-right: auto;
   }
 }

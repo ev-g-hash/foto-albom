@@ -1,12 +1,12 @@
 {% extends 'base.html' %}
 {% load static %}
 
-{% block title %}Заключение{% endblock %}
+{% block title %}Содержание{% endblock %}
 
 {% block content %}
 <section class="page">
   <div class="card stack-lg">
-    <h2>Заключение</h2>
+    <h2>Содержание</h2>
     <p class="lead">Список всех загруженных фотографий. Нажмите на описание, чтобы перейти к фото.</p>
 
     <ul class="conclusion-list">
@@ -22,7 +22,7 @@
     </ul>
 
     <div class="btn-row">
-      <a class="btn" href="{% url 'gallery' %}">Назад к галерее</a>
+      <a class="btn" href="{% url 'gallery' %}">Начало галереи</a>
       <a class="btn secondary" href="/">На главную</a>
     </div>
   </div>
