@@ -13,3 +13,8 @@ class FotosConfig(AppConfig):
         print(f"🔍 Creating photos folder at: {media_dir}")
         os.makedirs(media_dir, exist_ok=True)
         print(f"✅ Папка для фото создана: {media_dir}")
+        
+        # Также создаём папку для превью
+        thumbs_dir = os.path.join(settings.MEDIA_ROOT, 'thumbnails')
+        os.makedirs(thumbs_dir, exist_ok=True)
+        print(f"✅ Папка для превью создана: {thumbs_dir}")
