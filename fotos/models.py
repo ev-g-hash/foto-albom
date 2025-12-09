@@ -6,6 +6,8 @@ from django.core.exceptions import ValidationError
 
 def photo_upload_path(instance, filename):
     """Генерирует путь для сохранения файла с оптимизированным именем"""
+    from django.conf import settings
+    
     # Получаем расширение файла
     ext = filename.split('.')[-1].lower()
     
@@ -20,8 +22,8 @@ def photo_upload_path(instance, filename):
         # Для новых объектов используем UUID
         filename_base = f"temp_{uuid.uuid4().hex[:8]}"
     
-    # Возвращаем путь с оптимизированным именем
-    return os.path.join('photos/', f"{filename_base}.jpg")
+    # Возвращаем путь с оптимизированным именем - относительно MEDIA_ROOT
+    return os.path.join('photos', f"{filename_base}.jpg")  # Убираем 'photos/' - оставляем только имя
 
 def validate_image_size(image):
     """Валидация размера изображения"""
@@ -57,7 +59,7 @@ class Photo(models.Model):
     created_at = models.DateTimeField('Дата создания', auto_now_add=True)
     
     # Поле для превью (опционально)
-    thumbnail = models.ImageField('Превью', upload_to='thumbnails/', blank=True, null=True)
+    thumbnail = models.ImageField('Превью', upload_to='thumbnails', blank=True, null=True)
 
     class Meta:
         ordering = ['id'] 
@@ -86,3 +88,61 @@ class Photo(models.Model):
         except:
             pass
         return None
+    
+    def delete(self, *args, **kwargs):
+        """Переопределяем delete для удаления файлов с диска"""
+        try:
+            # Удаляем основное изображение
+            if self.image and self.image.name:
+                # Получаем полный путь к файлу
+                if hasattr(self.image, 'path'):
+                    file_path = self.image.path
+                    # Удаляем файл если он существует
+                    if os.path.exists(file_path):
+                        os.remove(file_path)
+                        print(f"🗑️ Удалён файл: {file_path}")
+        except Exception as e:
+            print(f"⚠️ Ошибка при удалении основного файла: {e}")
+        
+        try:
+            # Удаляем превью если есть
+            if self.thumbnail and self.thumbnail.name:
+                if hasattr(self.thumbnail, 'path'):
+                    thumb_path = self.thumbnail.path
+                    if os.path.exists(thumb_path):
+                        os.remove(thumb_path)
+                        print(f"🗑️ Удалён превью файл: {thumb_path}")
+        except Exception as e:
+            print(f"⚠️ Ошибка при удалении превью файла: {e}")
+        
+        # Удаляем запись из базы данных
+        super().delete(*args, **kwargs)
+    
+    def save(self, *args, **kwargs):
+        """Переопределяем save для удаления старого файла при замене"""
+        # Проверяем, обновляется ли существующий объект
+        if self.pk:
+            try:
+                old_photo = Photo.objects.get(pk=self.pk)
+                # Если файл изменился, удаляем старый
+                if old_photo.image.name != self.image.name:
+                    if old_photo.image and old_photo.image.name:
+                        if hasattr(old_photo.image, 'path'):
+                            old_file_path = old_photo.image.path
+                            if os.path.exists(old_file_path):
+                                os.remove(old_file_path)
+                                print(f"🗑️ Заменён старый файл: {old_file_path}")
+                
+                # Если превью изменилось, удаляем старое превью
+                if old_photo.thumbnail and self.thumbnail:
+                    if old_photo.thumbnail.name != self.thumbnail.name:
+                        if old_photo.thumbnail.name:
+                            if hasattr(old_photo.thumbnail, 'path'):
+                                old_thumb_path = old_photo.thumbnail.path
+                                if os.path.exists(old_thumb_path):
+                                    os.remove(old_thumb_path)
+                                    print(f"🗑️ Заменено старое превью: {old_thumb_path}")
+            except Photo.DoesNotExist:
+                pass  # Новый объект
+        
+        super().save(*args, **kwargs)
