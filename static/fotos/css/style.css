@@ -883,3 +883,55 @@ h1 {
     text-align: center;
   }
 }
+
+/* =============================================================================
+   ИНФОРМАЦИЯ О СЖАТИИ
+   ============================================================================= */
+
+/* Информация о сжатии */
+.compression-info {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+  margin: 20px 0;
+  padding: 16px;
+  background: rgba(34,197,94,0.05);
+  border: 1px solid rgba(34,197,94,0.2);
+  border-radius: 10px;
+}
+
+.compression-info .info-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 0.9rem;
+  color: var(--muted);
+}
+
+.compression-info .info-icon {
+  font-size: 1.1rem;
+}
+
+/* Улучшенная кнопка загрузки */
+.upload-form .btn {
+  background: linear-gradient(135deg, #22c55e, #16a34a);
+  font-weight: 600;
+}
+
+.upload-form .btn:hover {
+  background: linear-gradient(135deg, #16a34a, #15803d);
+}
+
+/* Мобильная адаптация для информации о сжатии */
+@media (max-width: 768px) {
+  .compression-info {
+    flex-direction: column;
+    gap: 8px;
+    text-align: center;
+  }
+  
+  .compression-info .info-item {
+    justify-content: center;
+  }
+}

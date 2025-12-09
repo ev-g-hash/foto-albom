@@ -194,10 +194,40 @@ SECURE_REFERRER_POLICY = None
 # Отключаем проверку Content-Type для статических файлов
 SECURE_CONTENT_TYPE_NOSNIFF = True
 
-# Настройки для загрузки файлов
-FILE_UPLOAD_MAX_MEMORY_SIZE = 5242880  # 5MB
-DATA_UPLOAD_MAX_MEMORY_SIZE = 5242880  # 5MB
+# =============================================================================
+# НАСТРОЙКИ ДЛЯ ЗАГРУЗКИ ФАЙЛОВ И ИЗОБРАЖЕНИЙ
+# =============================================================================
+
+# Максимальный размер загружаемого файла (20MB для продакшена)
+FILE_UPLOAD_MAX_MEMORY_SIZE = 20 * 1024 * 1024  # 20MB
+DATA_UPLOAD_MAX_MEMORY_SIZE = 20 * 1024 * 1024  # 20MB
+
+# Место для хранения временных файлов
+FILE_UPLOAD_TEMP_DIR = os.path.join(BASE_DIR, 'temp_uploads') if DEBUG else '/tmp'
+
+# Разрешённые расширения файлов
 FILE_UPLOAD_PERMISSIONS = 0o644
+
+# Настройки изображений для оптимизации на Amvera
+IMAGE_SIZES = {
+    'thumbnail': (300, 300),
+    'medium': (800, 600),
+    'large': (1920, 1080),
+    'ultra': (2560, 1440)
+}
+
+IMAGE_QUALITY = {
+    'thumbnail': 80,
+    'medium': 85,
+    'large': 85,
+    'ultra': 90
+}
+
+# Автоматическая оптимизация изображений
+AUTO_OPTIMIZE_IMAGES = True
+MAX_IMAGE_WIDTH = 1920
+MAX_IMAGE_HEIGHT = 1080
+DEFAULT_IMAGE_QUALITY = 85
 
 # Отключаем проверку хоста при DEBUG=False (для Amvera)
 if not DEBUG:
