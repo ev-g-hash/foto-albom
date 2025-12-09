@@ -960,3 +960,4 @@ Not Found: /favicon.ico
 "GET /static/fotos/css/style.css HTTP/1.1" 200 24031
 "GET / HTTP/1.1" 200 1665
 "GET /static/fotos/css/style.css HTTP/1.1" 200 24031
+Watching for file changes with StatReloader
