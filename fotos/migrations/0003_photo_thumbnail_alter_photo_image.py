@@ -21,4 +21,4 @@ class Migration(migrations.Migration):
             name='image',
             field=models.ImageField(upload_to=fotos.models.photo_upload_path, validators=[fotos.models.validate_image_size, fotos.models.validate_image_dimensions], verbose_name='Изображение'),
         ),
-    ]
+    ] 

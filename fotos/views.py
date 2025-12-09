@@ -13,7 +13,7 @@ from PIL import Image, ImageOps
 import io
 import base64
 import json
-import os
+import os 
 from .models import Photo
 
 def greeting(request):

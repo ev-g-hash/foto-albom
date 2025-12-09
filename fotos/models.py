@@ -1,6 +1,6 @@
 from django.db import models
 import os
-import uuid
+import uuid  
 from PIL import Image
 from django.core.exceptions import ValidationError
 

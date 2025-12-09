@@ -210,7 +210,7 @@ FILE_UPLOAD_PERMISSIONS = 0o644
 
 # Настройки изображений для оптимизации на Amvera
 IMAGE_SIZES = {
-    'thumbnail': (300, 300),
+    'thumbnail': (300, 300),   
     'medium': (800, 600),
     'large': (1920, 1080),
     'ultra': (2560, 1440)
