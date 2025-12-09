@@ -37,7 +37,7 @@ body {
   /* Базовый фон - мобильная картинка */
   background: 
     linear-gradient(rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 0.8)),
-    url('/staticfiles/images/bg-mobile.jpg') no-repeat center center;
+    url('/static/images/bg-mobile.jpg') no-repeat center center;
   background-size: cover;
   
   color: var(--text);
@@ -49,7 +49,7 @@ body {
   body {
     background-image: 
       linear-gradient(rgba(15, 23, 42, 0.7), rgba(15, 23, 42, 0.7)),
-      url('/staticfiles/images/bg-tablet.jpg');
+      url('/static/images/bg-tablet.jpg');
   }
 }
 
@@ -58,7 +58,7 @@ body {
   body {
     background-image: 
       linear-gradient(rgba(15, 23, 42, 0.6), rgba(15, 23, 42, 0.6)),
-      url('/staticfiles/images/bg-desktop.jpg');
+      url('/static/images/bg-desktop.jpg');
     background-attachment: fixed; /* Параллакс эффект на десктопе */
   }
 }
@@ -68,7 +68,7 @@ body {
   body {
     background-image: 
       linear-gradient(rgba(15, 23, 42, 0.5), rgba(15, 23, 42, 0.5)),
-      url('/staticfiles/images/bg-4k.jpg');
+      url('/static/images/bg-4k.jpg');
   }
 }
 
@@ -77,7 +77,7 @@ body {
   body {
     background-image: 
       linear-gradient(rgba(15, 23, 42, 0.4), rgba(15, 23, 42, 0.4)),
-      url('/staticfiles/images/bg-ultra.jpg');
+      url('/static/images/bg-ultra.jpg');
   }
 }
 

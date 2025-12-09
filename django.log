@@ -966,3 +966,8 @@ Watching for file changes with StatReloader
 "GET /static/fotos/css/style.css HTTP/1.1" 200 24056
 Not Found: /staticfiles/images/bg-desktop.jpg
 "GET /staticfiles/images/bg-desktop.jpg HTTP/1.1" 404 4718
+Watching for file changes with StatReloader
+"GET / HTTP/1.1" 200 1665
+"GET /static/fotos/js/main.js HTTP/1.1" 304 0
+"GET /static/fotos/css/style.css HTTP/1.1" 200 24031
+"GET /static/images/bg-desktop.jpg HTTP/1.1" 304 0
