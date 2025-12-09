@@ -29,17 +29,63 @@ html, body {
   height: 100%;                     /* Полная высота экрана */
 }
 
-/* Основные стили body */
+/* Основные стили body - АДАПТИВНАЯ КАРТИНКА */
 body {
   margin: 0;
   font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
-  /* Градиентный фон с тремя слоями */
-  background: radial-gradient(1200px 600px at 20% -10%, #1f2937, transparent),
-              radial-gradient(1000px 500px at 120% 10%, #1d4ed8, transparent),
-              radial-gradient(800px 400px at 50% 120%, #7c3aed, transparent),
-              var(--bg);
+  
+  /* Базовый фон - мобильная картинка */
+  background: 
+    linear-gradient(rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 0.8)),
+    url('/static/images/bg-mobile.jpg') no-repeat center center;
+  background-size: cover;
+  
   color: var(--text);
-  overflow-x: hidden;               /* Скрываем горизонтальную прокрутку */
+  overflow-x: hidden;
+}
+
+/* Планшеты (768px и больше) */
+@media (min-width: 768px) {
+  body {
+    background-image: 
+      linear-gradient(rgba(15, 23, 42, 0.7), rgba(15, 23, 42, 0.7)),
+      url('/static/images/bg-tablet.jpg');
+  }
+}
+
+/* Десктоп (1024px и больше) */
+@media (min-width: 1024px) {
+  body {
+    background-image: 
+      linear-gradient(rgba(15, 23, 42, 0.6), rgba(15, 23, 42, 0.6)),
+      url('/static/images/bg-desktop.jpg');
+    background-attachment: fixed; /* Параллакс эффект на десктопе */
+  }
+}
+
+/* Большие экраны (1440px и больше) */
+@media (min-width: 1440px) {
+  body {
+    background-image: 
+      linear-gradient(rgba(15, 23, 42, 0.5), rgba(15, 23, 42, 0.5)),
+      url('/static/images/bg-4k.jpg');
+  }
+}
+
+/* Очень большие экраны (2560px и больше) */
+@media (min-width: 2560px) {
+  body {
+    background-image: 
+      linear-gradient(rgba(15, 23, 42, 0.4), rgba(15, 23, 42, 0.4)),
+      url('/static/images/bg-ultra.jpg');
+  }
+}
+
+/* Отключаем параллакс на мобильных */
+@media (max-width: 1023px) {
+  body {
+    background-attachment: scroll;
+  }
 }
 
 /* =============================================================================
@@ -58,7 +104,7 @@ body {
 /* Карточка с контентом */
 .card {
   width: min(980px, 92vw);          /* Максимальная ширина 980px или 92% экрана */
-  background: var(--card);
+  background: rgba(255, 255, 255, 0.06);  /* Очень прозрачный */
   border: 1px solid rgba(255,255,255,0.08);
   border-radius: var(--radius);
   box-shadow: var(--shadow);
@@ -240,18 +286,6 @@ h1 {
   color: var(--text);
   border: 1px solid rgba(255,255,255,.18);
   box-shadow: none;
-}
-
-/* =============================================================================
-   КОНФЕТТИ (ГЛАВНАЯ СТРАНИЦА)
-   ============================================================================= */
-
-/* Canvas для конфетти */
-#confetti {
-  position: fixed;
-  inset: 0;                        /* Занимает весь экран */
-  pointer-events: none;            /* Не перехватывает клики */
-  z-index: -1;                     /* Слой ниже контента */
 }
 
 /* =============================================================================

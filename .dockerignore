@@ -38,6 +38,7 @@ wheels/
 db.sqlite3-journal
 local_settings.py
 django.log
+
 # Static and Media (не нужны в Docker, создаются при сборке)
 static/
 media/
@@ -64,3 +65,5 @@ settings-pbc.py
 # Логи
 *.log
 django.log
+
+venv_fotos
