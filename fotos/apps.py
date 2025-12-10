@@ -18,8 +18,3 @@ class FotosConfig(AppConfig):
         thumbs_dir = os.path.join(settings.MEDIA_ROOT, 'thumbnails')
         os.makedirs(thumbs_dir, exist_ok=True)
         print(f"✅ Папка для превью создана: {thumbs_dir}")
-        
-        # Создаём папку для временных файлов - ВАЖНО!
-        temp_dir = os.path.join(settings.MEDIA_ROOT, 'temp_uploads')
-        os.makedirs(temp_dir, exist_ok=True)
-        print(f"✅ Папка для временных файлов создана: {temp_dir}")
