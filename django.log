@@ -1225,3 +1225,13 @@ Watching for file changes with StatReloader
 "POST /fotos/upload/ HTTP/1.1" 302 0
 "GET /fotos/conclusion/ HTTP/1.1" 200 5654
 "GET /static/background.css HTTP/1.1" 404 1969
+Watching for file changes with StatReloader
+"GET / HTTP/1.1" 200 2024
+"GET /static/background.css HTTP/1.1" 404 1969
+"GET /fotos/ HTTP/1.1" 200 2768
+"GET /static/background.css HTTP/1.1" 404 1969
+"GET /fotos/conclusion/ HTTP/1.1" 200 5654
+"GET /static/background.css HTTP/1.1" 404 1969
+"POST /fotos/delete/27/ HTTP/1.1" 200 135
+"GET /fotos/conclusion/ HTTP/1.1" 200 5276
+"GET /static/background.css HTTP/1.1" 404 1969
