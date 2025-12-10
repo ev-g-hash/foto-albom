@@ -3,11 +3,10 @@ import os
 import uuid  
 from PIL import Image
 from django.core.exceptions import ValidationError
+from django.conf import settings
 
 def photo_upload_path(instance, filename):
     """Генерирует путь для сохранения файла с оптимизированным именем"""
-    from django.conf import settings
-    
     # Получаем расширение файла
     ext = filename.split('.')[-1].lower()
     
@@ -23,7 +22,7 @@ def photo_upload_path(instance, filename):
         filename_base = f"temp_{uuid.uuid4().hex[:8]}"
     
     # Возвращаем путь с оптимизированным именем - относительно MEDIA_ROOT
-    return os.path.join('photos', f"{filename_base}.jpg")  # Убираем 'photos/' - оставляем только имя
+    return os.path.join('photos', f"{filename_base}.jpg")
 
 def validate_image_size(image):
     """Валидация размера изображения"""

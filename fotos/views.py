@@ -9,58 +9,22 @@ from django.contrib.auth import authenticate, login, logout
 from django.core.files.storage import default_storage
 from django.core.files.base import ContentFile
 from django.shortcuts import get_object_or_404
+from django.conf import settings
 from PIL import Image, ImageOps
 import io
 import base64
 import json
 import os 
+import tempfile
 from .models import Photo
 
-def greeting(request):
-    """Главная страница с поздравлением"""
-    return render(request, 'greeting.html')
-
-def gallery(request):
-    photos_list = Photo.objects.all()
-    
-    # Определяем количество фото на странице (по умолчанию 3 для десктопа)
-    # JavaScript будет корректировать это для мобильных
-    per_page = request.GET.get('per_page', 3)
-    
-    paginator = Paginator(photos_list, per_page)
-    page_number = request.GET.get('page')
-    page_obj = paginator.get_page(page_number)
-    return render(request, 'gallery.html', {'page_obj': page_obj, 'per_page': per_page})
-
-def photo_detail(request, pk: int):
-    photo = get_object_or_404(Photo, pk=pk)
-    return render(request, 'detail.html', {'photo': photo})
-
-def conclusion(request):
-    """Страница содержания с кнопкой загрузки (только для суперюзера)"""
-    photos = Photo.objects.all()
-    can_upload = request.user.is_authenticated and request.user.is_superuser
-    return render(request, 'conclusion.html', {
-        'photos': photos, 
-        'can_upload': can_upload
-    })
+# =============================================================================
+# ВСПОМОГАТЕЛЬНЫЕ ФУНКЦИИ
+# =============================================================================
 
 def is_superuser(user):
     """Проверка на суперюзера"""
     return user.is_authenticated and user.is_superuser
-
-@user_passes_test(is_superuser)
-def upload_photos(request):
-    """Страница загрузки фотографий (только для суперюзера)"""
-    if request.method == 'POST':
-        # Обработка AJAX загрузки
-        if request.headers.get('x-requested-with') == 'XMLHttpRequest':
-            return handle_ajax_upload(request)
-        
-        # Обычная обработка формы
-        return handle_regular_upload(request)
-    
-    return render(request, 'upload.html')
 
 def compress_image(image_file, max_width=1920, max_height=1080, quality=85):
     """
@@ -68,6 +32,10 @@ def compress_image(image_file, max_width=1920, max_height=1080, quality=85):
     Оптимизировано для Amvera (ограниченные ресурсы)
     """
     try:
+        # Создаём временный файл в правильной папке
+        temp_dir = os.path.join(settings.MEDIA_ROOT, 'temp_uploads')
+        os.makedirs(temp_dir, exist_ok=True)
+        
         # Открываем изображение
         img = Image.open(image_file)
         
@@ -128,6 +96,56 @@ def create_thumbnail(image_io, size=(300, 300), quality=80):
     except Exception as e:
         raise ValueError(f"Ошибка создания превью: {str(e)}")
 
+# =============================================================================
+# ОСНОВНЫЕ VIEW-ФУНКЦИИ
+# =============================================================================
+
+def greeting(request):
+    """Главная страница с поздравлением"""
+    return render(request, 'greeting.html')
+
+def gallery(request):
+    photos_list = Photo.objects.all()
+    
+    # Определяем количество фото на странице (по умолчанию 3 для десктопа)
+    # JavaScript будет корректировать это для мобильных
+    per_page = request.GET.get('per_page', 3)
+    
+    paginator = Paginator(photos_list, per_page)
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+    return render(request, 'gallery.html', {'page_obj': page_obj, 'per_page': per_page})
+
+def photo_detail(request, pk: int):
+    photo = get_object_or_404(Photo, pk=pk)
+    return render(request, 'detail.html', {'photo': photo})
+
+def conclusion(request):
+    """Страница содержания с кнопкой загрузки (только для суперюзера)"""
+    photos = Photo.objects.all()
+    can_upload = request.user.is_authenticated and request.user.is_superuser
+    return render(request, 'conclusion.html', {
+        'photos': photos, 
+        'can_upload': can_upload
+    })
+
+# =============================================================================
+# ЗАЩИЩЁННЫЕ ФУНКЦИИ (ТОЛЬКО ДЛЯ СУПЕРЮЗЕРА)
+# =============================================================================
+
+@user_passes_test(is_superuser)
+def upload_photos(request):
+    """Страница загрузки фотографий (только для суперюзера)"""
+    if request.method == 'POST':
+        # Обработка AJAX загрузки
+        if request.headers.get('x-requested-with') == 'XMLHttpRequest':
+            return handle_ajax_upload(request)
+        
+        # Обычная обработка формы
+        return handle_regular_upload(request)
+    
+    return render(request, 'upload.html')
+
 @csrf_exempt
 @require_http_methods(["POST"])
 @user_passes_test(is_superuser)
@@ -147,8 +165,11 @@ def handle_ajax_upload(request):
         if ',' in image_data:
             header, image_data = image_data.split(',', 1)
         
-        # Создаём временный файл для обработки
+        # Создаём временный файл для обработки в правильной папке
         import uuid
+        temp_dir = os.path.join(settings.MEDIA_ROOT, 'temp_uploads')
+        os.makedirs(temp_dir, exist_ok=True)
+        
         temp_filename = f"temp_{uuid.uuid4().hex[:8]}.jpg"
         temp_image = ContentFile(base64.b64decode(image_data))
         temp_image.name = temp_filename

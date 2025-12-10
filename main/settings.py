@@ -202,8 +202,8 @@ SECURE_CONTENT_TYPE_NOSNIFF = True
 FILE_UPLOAD_MAX_MEMORY_SIZE = 20 * 1024 * 1024  # 20MB
 DATA_UPLOAD_MAX_MEMORY_SIZE = 20 * 1024 * 1024  # 20MB
 
-# Место для хранения временных файлов
-FILE_UPLOAD_TEMP_DIR = os.path.join(BASE_DIR, 'temp_uploads') if DEBUG else '/tmp'
+# Место для хранения временных файлов - ИСПРАВЛЯЕМ
+FILE_UPLOAD_TEMP_DIR = '/data/temp_uploads' if not DEBUG else os.path.join(BASE_DIR, 'temp_uploads')
 
 # Разрешённые расширения файлов
 FILE_UPLOAD_PERMISSIONS = 0o644
