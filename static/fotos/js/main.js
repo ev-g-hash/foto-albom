@@ -11,49 +11,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }, 80); // Немного быстрее для короткого текста
   }
 
-  // УБРАЛИ: Весь блок с конфетти canvas - больше не нужен
-
-  // Адаптивная пагинация
-  function initResponsivePagination() {
-    const galleryDataEl = document.getElementById('gallery-data');
-    if (!galleryDataEl) return;
-
-    const galleryData = JSON.parse(galleryDataEl.textContent);
-    const galleryEl = document.getElementById('gallery');
-    
-    if (!galleryEl) return;
-
-    function updatePagination() {
-      const isMobile = window.innerWidth <= 560;
-      const photosPerPage = isMobile ? 1 : 3;
-      
-      // Если количество фото изменилось, перезагружаем страницу с новыми параметрами
-      const currentURL = new URL(window.location);
-      const currentPerPage = currentURL.searchParams.get('per_page') || '3';
-      
-      if (currentPerPage != photosPerPage.toString()) {
-        currentURL.searchParams.set('per_page', photosPerPage.toString());
-        // Перезагружаем только если мы на странице галереи
-        if (window.location.pathname.includes('/fotos/')) {
-          window.location.href = currentURL.toString();
-        }
-      }
-    }
-
-    // Проверяем при загрузке и изменении размера окна
-    updatePagination();
-    window.addEventListener('resize', () => {
-      // Делаем задержку чтобы избежать слишком частых перезагрузок
-      clearTimeout(window.resizeTimeout);
-      window.resizeTimeout = setTimeout(updatePagination, 300);
-    });
-  }
-
-  // Инициализируем адаптивную пагинацию только на странице галереи
-  if (window.location.pathname.includes('/fotos/')) {
-    initResponsivePagination();
-  }
-
   // Лайтбокс для галереи
   const lightbox = document.getElementById('lightbox');
   const lightboxImg = document.getElementById('lightbox-img');
@@ -75,36 +32,115 @@ document.addEventListener('DOMContentLoaded', () => {
       lightboxImg.src = '';
     });
   }
+
+  // Создаём модальное окно для подтверждения удаления
+  createDeleteModal();
 });
 
 // Функции для удаления фотографий (глобальные)
 function deletePhoto(photoId, photoTitle) {
-  if (confirm(`Вы уверены, что хотите удалить "${photoTitle}"?`)) {
-    fetch(`/fotos/delete/${photoId}/`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'X-CSRFToken': getCookie('csrftoken'),
-        'X-Requested-With': 'XMLHttpRequest'
-      }
-    })
-    .then(response => response.json())
-    .then(data => {
-      if (data.success) {
-        // Удаляем элемент из списка
-        const listItem = document.querySelector(`button[onclick="deletePhoto(${photoId}`).closest('li');
-        if (listItem) {
-          listItem.remove();
-        }
-        showMessage(data.message, 'success');
-      } else {
-        showMessage(data.error, 'error');
-      }
-    })
-    .catch(error => {
-      showMessage('Ошибка при удалении фотографии', 'error');
+  showDeleteModal(photoId, photoTitle);
+}
+
+// Красивое модальное окно для подтверждения удаления
+function createDeleteModal() {
+  // Создаём модальное окно если его ещё нет
+  if (document.getElementById('deleteModal')) return;
+
+  const modal = document.createElement('div');
+  modal.id = 'deleteModal';
+  modal.className = 'delete-modal';
+  modal.innerHTML = `
+    <div class="delete-modal-overlay" onclick="closeDeleteModal()"></div>
+    <div class="delete-modal-content">
+      <div class="delete-modal-header">
+        <h3>🗑️ Подтверждение удаления</h3>
+      </div>
+      <div class="delete-modal-body">
+        <p>Вы уверены, что хотите удалить это фото?</p>
+        <p class="photo-title" id="modalPhotoTitle"></p>
+      </div>
+      <div class="delete-modal-footer">
+        <button type="button" class="btn secondary" onclick="closeDeleteModal()">
+          ❌ Отмена
+        </button>
+        <button type="button" class="btn delete-confirm-btn" id="confirmDeleteBtn">
+          🗑️ Удалить
+        </button>
+      </div>
+    </div>
+  `;
+
+  document.body.appendChild(modal);
+}
+
+function showDeleteModal(photoId, photoTitle) {
+  const modal = document.getElementById('deleteModal');
+  const titleEl = document.getElementById('modalPhotoTitle');
+  const confirmBtn = document.getElementById('confirmDeleteBtn');
+  
+  if (modal && titleEl && confirmBtn) {
+    titleEl.textContent = `"${photoTitle}"`;
+    titleEl.className = 'photo-title';
+    
+    // Удаляем предыдущие обработчики
+    const newConfirmBtn = confirmBtn.cloneNode(true);
+    confirmBtn.parentNode.replaceChild(newConfirmBtn, confirmBtn);
+    
+    // Добавляем новый обработчик
+    newConfirmBtn.addEventListener('click', () => {
+      confirmDeletePhoto(photoId);
     });
+    
+    modal.style.display = 'flex';
+    document.body.style.overflow = 'hidden';
   }
+}
+
+function closeDeleteModal() {
+  const modal = document.getElementById('deleteModal');
+  if (modal) {
+    modal.style.display = 'none';
+    document.body.style.overflow = '';
+  }
+}
+
+function confirmDeletePhoto(photoId) {
+  const csrftoken = getCookie('csrftoken');
+  
+  fetch(`/fotos/delete/${photoId}/`, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'X-CSRFToken': csrftoken,
+      'X-Requested-With': 'XMLHttpRequest'
+    }
+  })
+  .then(response => {
+    console.log('Response status:', response.status);
+    return response.json();
+  })
+  .then(data => {
+    console.log('Response data:', data);
+    
+    if (data.success) {
+      closeDeleteModal();
+      showMessage(data.message || 'Фотография успешно удалена', 'success');
+      
+      // Обновляем страницу через 1 секунду для проверки результата
+      setTimeout(() => {
+        window.location.reload();
+      }, 1000);
+    } else {
+      closeDeleteModal();
+      showMessage(data.error || 'Ошибка при удалении фотографии', 'error');
+    }
+  })
+  .catch(error => {
+    console.error('Fetch error:', error);
+    closeDeleteModal();
+    showMessage('Ошибка при удалении фотографии', 'error');
+  });
 }
 
 function getCookie(name) {

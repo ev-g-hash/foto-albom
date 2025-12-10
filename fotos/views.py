@@ -23,9 +23,8 @@ def greeting(request):
 def gallery(request):
     photos_list = Photo.objects.all()
     
-    # Определяем количество фото на странице (по умолчанию 3 для десктопа)
-    # JavaScript будет корректировать это для мобильных
-    per_page = request.GET.get('per_page', 3)
+    # ВСЕГДА показываем по 3 фото на странице (убрали адаптивность)
+    per_page = 3
     
     paginator = Paginator(photos_list, per_page)
     page_number = request.GET.get('page')
@@ -261,10 +260,18 @@ def delete_photo(request, pk):
     """Удаление фотографии (только для суперюзера)"""
     try:
         photo = get_object_or_404(Photo, pk=pk)
+        photo_title = photo.title or f"Фото #{photo.pk}"
         photo.delete()
-        return JsonResponse({'success': True, 'message': 'Фотография удалена'})
+        
+        return JsonResponse({
+            'success': True, 
+            'message': f'Фотография "{photo_title}" успешно удалена!'
+        })
     except Exception as e:
-        return JsonResponse({'success': False, 'error': f'Ошибка при удалении: {str(e)}'})
+        return JsonResponse({
+            'success': False, 
+            'error': f'Ошибка при удалении: {str(e)}'
+        })
 
 # =============================================================================
 # СИСТЕМА АВТОРИЗАЦИИ
