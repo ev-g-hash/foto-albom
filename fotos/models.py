@@ -57,7 +57,7 @@ class Photo(models.Model):
     created_at = models.DateTimeField('Дата создания', auto_now_add=True)
     
     # Поле для превью (опционально)
-    thumbnail = models.ImageField('Превью', upload_to='thumbnails/', blank=True, null=True)
+    thumbnail = models.ImageField('Превью', upload_to='thumbnail/', blank=True, null=True)
 
     class Meta:
         ordering = ['id'] 

@@ -10,7 +10,7 @@
     <p class="lead">Добавьте новые фотографии в ваш альбом</p>
 
     <!-- Информация о сжатии -->
-    <div class="compression-info">
+    {% comment %} <div class="compression-info">
       <div class="info-item">
         <span class="info-icon">🗜️</span>
         <span class="info-text">Автоматическое сжатие до 1920x1080px</span>
@@ -23,7 +23,7 @@
         <span class="info-icon">📱</span>
         <span class="info-text">Поддержка всех устройств</span>
       </div>
-    </div>
+    </div> {% endcomment %}
 
     <!-- Обычная форма загрузки -->
     <div class="upload-section active">
@@ -31,17 +31,17 @@
         {% csrf_token %}
         <div class="form-group">
           <label for="images">Выберите фотографии:</label>
-          <input type="file" name="images" id="images" multiple accept="image/*" capture="environment" required>
-          <small class="form-hint">Поддерживаются: JPG, PNG, WebP. Максимум 20MB на файл. Изображения автоматически сжимаются.</small>
+          <input type="file" class="btn" name="images" id="images" multiple accept="image/*" capture="environment" required>
+          <small class="form-hint">Поддерживаются: JPG, PNG, WebP. Максимум 20MB на файл.</small>
         </div>
         
         <div class="form-group">
-          <label for="title">Название (опционально):</label>
+          <label for="title">Название:</label>
           <input type="text" name="title" id="title" class="form-input" placeholder="Название для всех фото">
         </div>
         
         <div class="form-group">
-          <label for="description">Описание (опционально):</label>
+          <label for="description">Описание:</label>
           <textarea name="description" id="description" class="form-textarea" placeholder="Описание для всех фото"></textarea>
         </div>
         
@@ -50,8 +50,8 @@
     </div>
 
     <div class="btn-row">
-      <a class="btn" href="{% url 'conclusion' %}">К содержанию</a>
-      <a class="btn secondary" href="{% url 'gallery' %}">К галерее</a>
+      <a class="btn" href="{% url 'conclusion' %}">Содержание</a>
+      <a class="btn secondary" href="{% url 'gallery' %}">В галерею</a>
     </div>
   </div>
 </section>

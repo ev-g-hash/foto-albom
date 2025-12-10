@@ -1135,3 +1135,93 @@ django.template.exceptions.TemplateSyntaxError: Template: C:\Users\прога\Desktop
 "GET /static/background.css HTTP/1.1" 404 1969
 "POST /fotos/delete/16/ HTTP/1.1" 200 135
 "POST /fotos/delete/24/ HTTP/1.1" 200 135
+Watching for file changes with StatReloader
+C:\Users\прога\Desktop\foto-albom\fotos\models.py changed, reloading.
+Watching for file changes with StatReloader
+Watching for file changes with StatReloader
+"GET / HTTP/1.1" 200 1804
+"GET /static/background.css HTTP/1.1" 404 1969
+"GET /static/fotos/js/main.js HTTP/1.1" 200 5178
+"GET /static/fotos/css/style.css HTTP/1.1" 200 24338
+"GET /static/images/bg-desktop.jpg HTTP/1.1" 404 1990
+Not Found: /favicon.ico
+"GET /favicon.ico HTTP/1.1" 404 4652
+"GET / HTTP/1.1" 200 1804
+"GET /static/background.css HTTP/1.1" 404 1969
+"GET /static/images/bg-desktop.jpg HTTP/1.1" 404 1990
+"GET / HTTP/1.1" 200 1804
+"GET /static/background.css HTTP/1.1" 404 1969
+"GET /static/images/bg-desktop.jpg HTTP/1.1" 404 1990
+"GET / HTTP/1.1" 200 1804
+"GET /static/background.css HTTP/1.1" 404 1969
+"GET / HTTP/1.1" 200 1804
+"GET /static/background.css HTTP/1.1" 404 1969
+"GET / HTTP/1.1" 200 1804
+"GET /static/background.css HTTP/1.1" 404 1969
+"GET / HTTP/1.1" 200 1804
+"GET /static/background.css HTTP/1.1" 404 1969
+"GET /static/images/bg-desktop.jpg HTTP/1.1" 200 124700
+"GET /fotos/ HTTP/1.1" 200 2768
+"GET /static/background.css HTTP/1.1" 404 1969
+"GET /media/photos/2.jpg HTTP/1.1" 200 80570
+"GET /media/photos/3.jpg HTTP/1.1" 200 32868
+"GET /media/photos/4.jpg HTTP/1.1" 200 28594
+"GET /fotos/?page=2 HTTP/1.1" 200 2363
+"GET /static/background.css HTTP/1.1" 404 1969
+"GET /media/photos/5.jpg HTTP/1.1" 200 35752
+"GET /media/photos/6.jpg HTTP/1.1" 200 40019
+C:\Users\прога\Desktop\foto-albom\fotos\models.py changed, reloading.
+Watching for file changes with StatReloader
+C:\Users\прога\Desktop\foto-albom\main\settings.py changed, reloading.
+Watching for file changes with StatReloader
+"GET / HTTP/1.1" 200 1804
+"GET /static/background.css HTTP/1.1" 404 1969
+"GET /fotos/conclusion/ HTTP/1.1" 200 4266
+"GET /static/background.css HTTP/1.1" 404 1969
+"GET / HTTP/1.1" 200 1804
+"GET /static/background.css HTTP/1.1" 404 1969
+"GET /fotos/conclusion/ HTTP/1.1" 200 4266
+"GET /static/background.css HTTP/1.1" 404 1969
+"GET /fotos/ HTTP/1.1" 200 2768
+"GET /static/background.css HTTP/1.1" 404 1969
+"GET / HTTP/1.1" 200 1804
+"GET /static/background.css HTTP/1.1" 404 1969
+"GET /fotos/ HTTP/1.1" 200 2768
+"GET /static/background.css HTTP/1.1" 404 1969
+"GET /fotos/18/ HTTP/1.1" 200 986
+"GET /static/background.css HTTP/1.1" 404 1969
+"GET /fotos/conclusion/ HTTP/1.1" 200 4266
+"GET /static/background.css HTTP/1.1" 404 1969
+"GET / HTTP/1.1" 200 1804
+"GET /static/background.css HTTP/1.1" 404 1969
+"GET /login/ HTTP/1.1" 200 2272
+"GET /static/background.css HTTP/1.1" 404 1969
+"POST /login/ HTTP/1.1" 302 0
+"GET /fotos/conclusion/ HTTP/1.1" 200 5276
+"GET /static/background.css HTTP/1.1" 404 1969
+"GET /fotos/upload/ HTTP/1.1" 200 2940
+"GET /static/background.css HTTP/1.1" 404 1969
+"POST /fotos/upload/ HTTP/1.1" 302 0
+"GET /fotos/conclusion/ HTTP/1.1" 200 5634
+"GET /static/background.css HTTP/1.1" 404 1969
+"GET /fotos/upload/ HTTP/1.1" 200 2940
+"GET /static/background.css HTTP/1.1" 404 1969
+"GET /fotos/upload/ HTTP/1.1" 200 2227
+"GET /static/background.css HTTP/1.1" 404 1969
+"GET /fotos/upload/ HTTP/1.1" 200 2239
+"GET /static/background.css HTTP/1.1" 404 1969
+"GET /fotos/upload/ HTTP/1.1" 200 2239
+"GET /static/background.css HTTP/1.1" 404 1969
+"POST /fotos/upload/ HTTP/1.1" 302 0
+"GET /fotos/conclusion/ HTTP/1.1" 200 5993
+"GET /static/background.css HTTP/1.1" 404 1969
+"POST /fotos/delete/25/ HTTP/1.1" 200 135
+"POST /fotos/delete/25/ HTTP/1.1" 200 170
+"POST /fotos/delete/26/ HTTP/1.1" 200 135
+"GET /fotos/conclusion/ HTTP/1.1" 200 5276
+"GET /static/background.css HTTP/1.1" 404 1969
+"GET /fotos/upload/ HTTP/1.1" 200 2239
+"GET /static/background.css HTTP/1.1" 404 1969
+"POST /fotos/upload/ HTTP/1.1" 302 0
+"GET /fotos/conclusion/ HTTP/1.1" 200 5654
+"GET /static/background.css HTTP/1.1" 404 1969

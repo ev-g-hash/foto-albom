@@ -37,7 +37,7 @@ body {
   /* Базовый фон - мобильная картинка */
   background: 
     linear-gradient(rgba(15, 23, 42, 0.8), rgba(15, 23, 42, 0.8)),
-    url('/static/images/bg-mobile.jpg') no-repeat center center;
+    url('/static/images/bg-mobile.jpg') no-repeat center center; 
   background-size: cover;
   
   color: var(--text);

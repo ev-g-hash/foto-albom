@@ -203,7 +203,7 @@ FILE_UPLOAD_MAX_MEMORY_SIZE = 20 * 1024 * 1024  # 20MB
 DATA_UPLOAD_MAX_MEMORY_SIZE = 20 * 1024 * 1024  # 20MB
 
 # Место для хранения временных файлов
-FILE_UPLOAD_TEMP_DIR = os.path.join(BASE_DIR, 'temp_uploads') if DEBUG else '/tmp'
+FILE_UPLOAD_TEMP_DIR = os.path.join(BASE_DIR, 'media/thumbnails') if DEBUG else '/tmp'
 
 # Разрешённые расширения файлов
 FILE_UPLOAD_PERMISSIONS = 0o644
