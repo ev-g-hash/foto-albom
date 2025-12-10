@@ -289,27 +289,143 @@ h1 {
 }
 
 /* =============================================================================
-   ГАЛЕРЕЯ - ФОТОГРАФИИ БЕЗ ОБРЕЗКИ
+   МОДАЛЬНОЕ ОКНО УДАЛЕНИЯ
    ============================================================================= */
 
-/* Контейнер галереи */
-.gallery {
-  display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr)); /* 3 колонки на десктопе */
-  gap: 16px;                       /* Промежуток между элементами */
+/* Модальное окно удаления */
+.delete-modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.8);
+  z-index: 2000;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  backdrop-filter: blur(5px);
 }
 
-/* Планшет - 2 колонки */
-@media (max-width: 900px) {
-  .gallery { 
-    grid-template-columns: repeat(2, minmax(0, 1fr)); 
+.delete-modal-overlay {
+  position: absolute;
+  inset: 0;
+  cursor: pointer;
+}
+
+.delete-modal-content {
+  position: relative;
+  background: var(--card);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: var(--radius);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.5);
+  max-width: 400px;
+  width: 100%;
+  overflow: hidden;
+  backdrop-filter: blur(15px);
+  animation: modalSlideIn 0.3s ease-out;
+}
+
+@keyframes modalSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-30px) scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
   }
 }
 
-/* Мобильный - 1 колонка */
+.delete-modal-header {
+  padding: 20px 20px 0 20px;
+  text-align: center;
+}
+
+.delete-modal-header h3 {
+  margin: 0;
+  color: var(--text);
+  font-size: 1.3rem;
+  font-weight: 600;
+}
+
+.delete-modal-body {
+  padding: 20px;
+  text-align: center;
+}
+
+.delete-modal-body p {
+  margin: 0 0 10px 0;
+  color: var(--text);
+  font-size: 1rem;
+}
+
+.photo-title {
+  color: var(--muted) !important;
+  font-style: italic;
+  font-size: 0.9rem !important;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 10px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  margin-top: 15px !important;
+}
+
+.delete-modal-footer {
+  padding: 0 20px 20px 20px;
+  display: flex;
+  gap: 10px;
+  justify-content: center;
+}
+
+.delete-confirm-btn {
+  background: linear-gradient(135deg, #dc2626, #ef4444) !important;
+  color: white !important;
+  border: none !important;
+  padding: 10px 20px !important;
+  border-radius: 8px !important;
+  font-weight: 600 !important;
+  cursor: pointer !important;
+  transition: all 0.2s ease !important;
+  box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3) !important;
+}
+
+.delete-confirm-btn:hover {
+  background: linear-gradient(135deg, #b91c1c, #dc2626) !important;
+  transform: translateY(-1px) !important;
+  box-shadow: 0 6px 16px rgba(239, 68, 68, 0.4) !important;
+}
+
+.delete-confirm-btn:active {
+  transform: translateY(0) !important;
+}
+
+/* Стили для кнопок в модальном окне */
+.delete-modal .btn {
+  min-width: 100px;
+  justify-content: center;
+}
+
+/* =============================================================================
+   ГАЛЕРЕЯ - ВСЕГДА 3 ФОТО (УБРАЛИ АДАПТИВНОСТЬ)
+   ============================================================================= */
+
+/* Контейнер галереи - всегда 3 колонки */
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr)); /* Всегда 3 колонки */
+  gap: 16px;                       /* Промежуток между элементами */
+}
+
+/* Убираем медиа-запросы для адаптивности галереи */
+/* Теперь всегда 3 фото на всех устройствах */
+@media (max-width: 900px) {
+  .gallery { 
+    grid-template-columns: repeat(3, minmax(0, 1fr)); /* Всё равно 3 колонки */
+  }
+}
+
 @media (max-width: 560px) {
   .gallery { 
-    grid-template-columns: 1fr; 
+    grid-template-columns: repeat(3, minmax(0, 1fr)); /* Всё равно 3 колонки */
   }
 }
 
@@ -366,7 +482,7 @@ h1 {
 }
 
 /* =============================================================================
-   ПАГИНАЦИЯ
+   ПАГИНАЦИЯ - ИСПРАВЛЕНИЯ ДЛЯ 3 ФОТО
    ============================================================================= */
 
 /* Контейнер пагинации */
@@ -630,10 +746,10 @@ h1 {
 }
 
 /* =============================================================================
-   МОБИЛЬНАЯ АДАПТИВНОСТЬ
+   МОБИЛЬНАЯ АДАПТИВНОСТЬ - ИСПРАВЛЕНИЯ
    ============================================================================= */
 
-/* Планшетная версия */
+/* Планшетная версия - галерея остаётся 3 колонки */
 @media (max-width: 768px) {
   h1 {
     font-size: 2.2rem;
@@ -679,9 +795,14 @@ h1 {
   .admin-controls {
     padding: 12px;
   }
+
+  /* Галерея остаётся 3 колонки */
+  .gallery {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
 }
 
-/* Мобильная версия */
+/* Мобильная версия - галерея остаётся 3 колонки */
 @media (max-width: 480px) {
   h1 {
     font-size: 1.8rem;
@@ -723,6 +844,16 @@ h1 {
   .btn {
     width: 100%;
     text-align: center;
+  }
+
+  /* Галерея остаётся 3 колонки даже на мобильных */
+  .gallery {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 12px; /* Немного меньше промежуток */
+  }
+
+  .photo img {
+    height: 140px; /* Ещё меньше на мобильных */
   }
 }
 
