@@ -16,14 +16,14 @@
     </div>
     {% endif %}
     
-    <p class="lead">Список всех загруженных фотографий. Нажмите на описание, чтобы перейти к фото.</p>
+    <p class="lead">Список всех загруженных фотографий. Нажмите на название, чтобы перейти к фото.</p>
 
     <ul class="conclusion-list">
       {% for photo in photos %}
       <li>
         <div class="photo-list-item">
           <a href="{% url 'photo_detail' photo.pk %}">
-            {{ photo.title|default:"Фото без названия" }} — {{ photo.description|default:"Без описания" }}
+            {{ photo.title|default:"Фото без названия" }}
           </a>
           {% if can_upload %}
           <button class="delete-btn" onclick="deletePhoto({{ photo.pk }}, '{{ photo.title|default:"Фото"|escapejs }}')" title="Удалить фото">

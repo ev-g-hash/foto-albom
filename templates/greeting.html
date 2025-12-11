@@ -23,8 +23,8 @@
         <span class="btn-text">Посмотреть фотографии</span>
         <span class="btn-icon">📸</span>
       </a>
-      <a class="btn secondary" href="{% url 'conclusion' %}" aria-label="Перейти к содержанию">
-        <span class="btn-text">Содержание</span>
+      <a class="btn content-album-btn" href="{% url 'conclusion' %}" aria-label="Перейти к содержанию">
+        <span class="btn-text">Содержание альбома</span>
         <span class="btn-icon">📋</span>
       </a>
       {% if not user.is_authenticated %}

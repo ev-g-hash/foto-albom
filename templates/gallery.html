@@ -12,9 +12,9 @@
       {% for photo in page_obj.object_list %}
       <div class="photo">
         <img src="{{ photo.image.url }}" alt="{{ photo.title|default:'Фото' }}" loading="lazy" data-full="{{ photo.image.url }}" data-title="{{ photo.title|default:'' }}" data-desc="{{ photo.description|default:'' }}">
-        {% if photo.description %}
-        <div class="photo-desc">
-          <a href="{% url 'photo_detail' photo.pk %}">{{ photo.description }}</a>
+        {% if photo.title %}
+        <div class="photo-title">
+          {{ photo.title }}
         </div>
         {% endif %}
       </div>
@@ -25,16 +25,16 @@
 
     <nav class="pagination">
       {% if page_obj.has_previous %}
-        <a class="btn" href="?page={{ page_obj.previous_page_number }}{% if per_page != 3 %}&per_page={{ per_page }}{% endif %}">Назад</a>
+        <a class="btn" href="?page={{ page_obj.previous_page_number }}{% if per_page != 6 %}&per_page={{ per_page }}{% endif %}">Назад</a>
       {% endif %}
       <span class="page-info">Страница {{ page_obj.number }} из {{ page_obj.paginator.num_pages }}</span>
       {% if page_obj.has_next %}
-        <a class="btn" href="?page={{ page_obj.next_page_number }}{% if per_page != 3 %}&per_page={{ per_page }}{% endif %}">Далее</a>
+        <a class="btn" href="?page={{ page_obj.next_page_number }}{% if per_page != 6 %}&per_page={{ per_page }}{% endif %}">Далее</a>
       {% endif %}
     </nav>
 
     <div class="btn-row">
-      <a id="to-code" class="btn secondary" href="{% url 'conclusion' %}">Содержание</a>
+      <a id="to-code" class="btn content-album-btn" href="{% url 'conclusion' %}">Содержание альбома</a>
       <a id="back-to-greeting" class="btn" href="/">На главную</a>
     </div>
   </div>

@@ -24,7 +24,7 @@ def gallery(request):
     photos_list = Photo.objects.all()
     
     # ВСЕГДА показываем по 3 фото на странице (убрали адаптивность)
-    per_page = 3
+    per_page = 6
     
     paginator = Paginator(photos_list, per_page)
     page_number = request.GET.get('page')

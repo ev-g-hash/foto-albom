@@ -15,6 +15,8 @@
   --gold: #ffd700;                  /* Золотой цвет */
   --rose: #f43f5e;                  /* Розовый цвет */
   --purple: #a855f7;                /* Фиолетовый цвет */
+  --green: #10b981;                 /* Зелёный цвет */
+  --green-dark: #059669;            /* Тёмно-зелёный */
   --radius: 14px;                   /* Радиус скругления */
   --shadow: 0 10px 30px rgba(0,0,0,0.35); /* Тень */
 }
@@ -288,6 +290,19 @@ h1 {
   box-shadow: none;
 }
 
+/* Зелёная кнопка "Содержание альбома" */
+.content-album-btn {
+  background: linear-gradient(135deg, var(--green), var(--green-dark)) !important;
+  color: white !important;
+  box-shadow: 0 6px 18px rgba(16, 185, 129, 0.35) !important;
+}
+
+.content-album-btn:hover {
+  background: linear-gradient(135deg, var(--green-dark), #047857) !important;
+  transform: translateY(-1px) !important;
+  box-shadow: 0 8px 22px rgba(16, 185, 129, 0.45) !important;
+}
+
 /* =============================================================================
    МОДАЛЬНОЕ ОКНО УДАЛЕНИЯ
    ============================================================================= */
@@ -405,27 +420,46 @@ h1 {
 }
 
 /* =============================================================================
-   ГАЛЕРЕЯ - ВСЕГДА 3 ФОТО (УБРАЛИ АДАПТИВНОСТЬ)
+   ГАЛЕРЕЯ - 6 ФОТО С МОБИЛЬНОЙ ОПТИМИЗАЦИЕЙ
    ============================================================================= */
 
-/* Контейнер галереи - всегда 3 колонки */
+/* Контейнер галереи - 6 колонок на десктопе */
 .gallery {
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr)); /* Всегда 3 колонки */
-  gap: 16px;                       /* Промежуток между элементами */
+  grid-template-columns: repeat(3, 1fr); /* На планшетах 3 колонки */
+  grid-template-columns: repeat(6, 1fr); /* На десктопе 6 колонок */
+  gap: 12px;                       /* Промежуток между элементами */
 }
 
-/* Убираем медиа-запросы для адаптивности галереи */
-/* Теперь всегда 3 фото на всех устройствах */
-@media (max-width: 900px) {
-  .gallery { 
-    grid-template-columns: repeat(3, minmax(0, 1fr)); /* Всё равно 3 колонки */
+/* Десктоп (1024px и больше) - 6 колонок */
+@media (min-width: 1024px) {
+  .gallery {
+    grid-template-columns: repeat(6, 1fr);
+    gap: 16px;
   }
 }
 
-@media (max-width: 560px) {
-  .gallery { 
-    grid-template-columns: repeat(3, minmax(0, 1fr)); /* Всё равно 3 колонки */
+/* Планшеты (768px - 1023px) - 3 колонки */
+@media (min-width: 768px) and (max-width: 1023px) {
+  .gallery {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+  }
+}
+
+/* Мобильные (до 767px) - 2 колонки */
+@media (max-width: 767px) {
+  .gallery {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+}
+
+/* Очень маленькие мобильные (до 480px) - 2 колонки */
+@media (max-width: 480px) {
+  .gallery {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
   }
 }
 
@@ -433,29 +467,48 @@ h1 {
 .photo {
   display: flex;
   flex-direction: column;          /* Элементы располагаются вертикально */
-  gap: 8px;                        /* Промежуток между фото и описанием */
+  gap: 6px;                        /* Промежуток между фото и названием */
 }
 
 /* Стили изображений в галерее - БЕЗ ОБРЕЗКИ */
 .photo img {
   width: 100%;                     /* Полная ширина контейнера */
-  height: 220px;                   /* Фиксированная высота */
+  height: 140px;                   /* Уменьшенная высота для компактности */
   object-fit: contain;             /* НЕ ОБРЕЗАЕМ - показываем полностью */
-  border-radius: 12px;
+  border-radius: 8px;
   cursor: zoom-in;                 /* Курсор "увеличительное стекло" */
   border: 1px solid rgba(255,255,255,.08);
-  box-shadow: 0 10px 20px rgba(0,0,0,.25);
+  box-shadow: 0 6px 16px rgba(0,0,0,.25);
   transition: transform .2s ease, box-shadow .2s ease;
   background: rgba(255,255,255,0.03); /* Фон для пустых областей */
 }
 
 /* Эффект при наведении на фото */
 .photo img:hover {
-  transform: translateY(-2px) scale(1.02); /* Поднимаем и слегка увеличиваем */
-  box-shadow: 0 14px 28px rgba(0,0,0,.35);
+  transform: translateY(-1px) scale(1.02); /* Поднимаем и слегка увеличиваем */
+  box-shadow: 0 8px 20px rgba(0,0,0,.35);
 }
 
-/* Контейнер описания фото */
+/* Название фото (показывается только на десктопе) */
+.photo-title {
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  font-size: 0.8rem;
+  color: var(--muted);
+  line-height: 1.3;
+  /* Скрываем на мобильных */
+  display: none;
+}
+
+/* Показываем название только на десктопе */
+@media (min-width: 1024px) {
+  .photo-title {
+    display: block;
+  }
+}
+
+/* Описание фото (больше не используется, но оставим для совместимости) */
 .photo-desc {
   margin: 0;
   padding: 0;
@@ -482,7 +535,7 @@ h1 {
 }
 
 /* =============================================================================
-   ПАГИНАЦИЯ - ИСПРАВЛЕНИЯ ДЛЯ 3 ФОТО
+   ПАГИНАЦИЯ - ИСПРАВЛЕНИЯ ДЛЯ 6 ФОТО
    ============================================================================= */
 
 /* Контейнер пагинации */
@@ -746,10 +799,10 @@ h1 {
 }
 
 /* =============================================================================
-   МОБИЛЬНАЯ АДАПТИВНОСТЬ - ИСПРАВЛЕНИЯ
+   МОБИЛЬНАЯ АДАПТИВНОСТЬ - УЛУЧШЕНИЯ
    ============================================================================= */
 
-/* Планшетная версия - галерея остаётся 3 колонки */
+/* Планшетная версия */
 @media (max-width: 768px) {
   h1 {
     font-size: 2.2rem;
@@ -777,7 +830,7 @@ h1 {
   }
   
   .photo img {
-    height: 180px; /* Меньше высота на планшетах */
+    height: 120px; /* Меньше высота на планшетах */
   }
   
   .photo-list-item {
@@ -795,14 +848,9 @@ h1 {
   .admin-controls {
     padding: 12px;
   }
-
-  /* Галерея остаётся 3 колонки */
-  .gallery {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-  }
 }
 
-/* Мобильная версия - галерея остаётся 3 колонки */
+/* Мобильная версия */
 @media (max-width: 480px) {
   h1 {
     font-size: 1.8rem;
@@ -828,7 +876,7 @@ h1 {
   }
   
   .photo img {
-    height: 160px; /* Ещё меньше на мобильных */
+    height: 100px; /* Ещё меньше на мобильных */
   }
   
   .delete-btn {
@@ -846,14 +894,19 @@ h1 {
     text-align: center;
   }
 
-  /* Галерея остаётся 3 колонки даже на мобильных */
+  /* Галерея остаётся 2 колонки на мобильных */
   .gallery {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 12px; /* Немного меньше промежуток */
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
   }
 
   .photo img {
-    height: 140px; /* Ещё меньше на мобильных */
+    height: 90px; /* Минимальная высота на мобильных */
+  }
+
+  /* Название фото скрыто на мобильных */
+  .photo-title {
+    display: none !important;
   }
 }
 
@@ -865,6 +918,10 @@ h1 {
   
   .upload-icon {
     font-size: 1.8rem;
+  }
+
+  .photo img {
+    height: 80px;
   }
 }
 
