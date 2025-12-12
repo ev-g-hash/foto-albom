@@ -274,6 +274,49 @@ def delete_photo(request, pk):
         })
 
 # =============================================================================
+# НОВАЯ ФУНКЦИЯ РЕДАКТИРОВАНИЯ ФОТО
+# =============================================================================
+
+@csrf_exempt
+@require_http_methods(["POST"])
+@user_passes_test(is_superuser)
+def edit_photo(request, pk):
+    """Редактирование фотографии (только для суперюзера)"""
+    try:
+        photo = get_object_or_404(Photo, pk=pk)
+        
+        # Получаем данные из запроса
+        data = json.loads(request.body)
+        field = data.get('field')
+        value = data.get('value', '')
+        
+        if field == 'title':
+            photo.title = value
+            photo.save()
+            return JsonResponse({
+                'success': True, 
+                'message': 'Название успешно обновлено!'
+            })
+        elif field == 'description':
+            photo.description = value
+            photo.save()
+            return JsonResponse({
+                'success': True, 
+                'message': 'Описание успешно обновлено!'
+            })
+        else:
+            return JsonResponse({
+                'success': False, 
+                'error': 'Неподдерживаемое поле'
+            })
+            
+    except Exception as e:
+        return JsonResponse({
+            'success': False, 
+            'error': f'Ошибка при редактировании: {str(e)}'
+        })
+
+# =============================================================================
 # СИСТЕМА АВТОРИЗАЦИИ
 # =============================================================================
 

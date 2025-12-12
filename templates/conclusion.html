@@ -18,29 +18,37 @@
     
     <p class="lead">Список всех загруженных фотографий. Нажмите на название, чтобы перейти к фото.</p>
 
-    <ul class="conclusion-list">
-      {% for photo in photos %}
-      <li>
-        <div class="photo-list-item">
-          <a href="{% url 'photo_detail' photo.pk %}">
-            {{ photo.title|default:"Фото без названия" }}
-          </a>
+    <!-- Добавляем контейнер с прокруткой для мобильных -->
+    <div class="conclusion-scrollable">
+      <ul class="conclusion-list">
+        {% for photo in photos %}
+        <li>
+          <div class="photo-list-item">
+            {% if can_upload %}
+              <!-- Для авторизованного пользователя - кнопка с модальным окном -->
+              <button class="photo-title-btn editable" 
+                      onclick="showPhotoModal({{ photo.pk }}, '{{ photo.title|default:"Фото без названия"|escapejs }}', '{{ photo.description|default:""|escapejs }}')">
+                {{ photo.title|default:"Фото без названия" }}
+                <span class="edit-hint"> - редактировать</span>
+              </button>
+            {% else %}
+              <!-- Для неавторизованного пользователя - обычная ссылка -->
+              <a href="{% url 'photo_detail' photo.pk %}" class="photo-title-link">
+                {{ photo.title|default:"Фото без названия" }}
+              </a>
+            {% endif %}
+          </div>
+        </li>
+        {% empty %}
+        <li>
+          <p class="muted">Пока ничего нет.</p>
           {% if can_upload %}
-          <button class="delete-btn" onclick="deletePhoto({{ photo.pk }}, '{{ photo.title|default:"Фото"|escapejs }}')" title="Удалить фото">
-            🗑️
-          </button>
+          <a href="{% url 'upload_photos' %}">Загрузить первое фото</a>
           {% endif %}
-        </div>
-      </li>
-      {% empty %}
-      <li>
-        <p class="muted">Пока ничего нет.</p>
-        {% if can_upload %}
-        <a href="{% url 'upload_photos' %}">Загрузить первое фото</a>
-        {% endif %}
-      </li>
-      {% endfor %}
-    </ul>
+        </li>
+        {% endfor %}
+      </ul>
+    </div>
 
     <div class="btn-row">
       <a class="btn" href="{% url 'gallery' %}">Начало галереи</a>
