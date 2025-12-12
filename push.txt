@@ -86,6 +86,10 @@ push 3.4
 python manage.py collectstatic --noinput
 
 
+......................................................................................
+push 3.5
+
+python manage.py collectstatic --noinput
 
 
 
