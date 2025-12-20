@@ -54,6 +54,6 @@ django.log
 
 #настройки перед деплоем
 foto-albom.txt
-
+push.txt
 venv_fotos
 
